@@ -27,6 +27,9 @@ This is the loop hierarchy of a 835 transaction used here.
  |  |  |  +--SE - SE
  |  |  +--GE - GE
  |  +--IEA - IEA
+
+Format:
+LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
 }}}
 
 Example of how to create a configuration object for the above hierarchy.
