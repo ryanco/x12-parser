@@ -64,18 +64,18 @@ private static Cf loadCf() {
 
 {{{ 
 
-Cf cf835 = loadCf();
 // The configuration Cf can be loaded using DI framework.
 // Check the sample spring application context file provided.
 
+Cf cf835 = loadCf();
 Parser parser = new X12Parser(cf835);
-
 X12 x12 = (X12) parser.parse(new File("C:\\test\\835.txt"));
+
+
+Double totalChargeAmount = 0.0;
 
 // Calculate the total charge amount
 List<Loop> loops = x12.findLoop("2100");
-
-Double totalChargeAmount = 0.0;
 
 for (Loop loop : loops) {
     for (Segment s : loop) {
@@ -87,12 +87,13 @@ for (Loop loop : loops) {
 System.out.println("Total Charged Amount = " + totalChargeAmount.toString());
 }}}
 
----
 
 {{{
 // Alternate way
+Double totalChargeAmount = 0.0;
+
 List<Segment> segments = x12.findSegment("CLP");
-totalChargeAmount = 0.0;
+
 for (Segment s : segments) {
     totalChargeAmount = totalChargeAmount + Double.parseDouble(s.getElement(3));
 }
