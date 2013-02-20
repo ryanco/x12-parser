@@ -10,17 +10,17 @@ Here is a sample 835 hierarchy which is flattened. Some may not be interested in
 
 {{{
   +--X12
-  |  +--ISA - ISA
-  |  +--GS - GS
-  |  +--ST - ST - 835, - 1
-  |  +--1000A - N1 - PR, - 1
-  |  +--1000B - N1 - PE, - 1
-  |  +--2000 - LX
-  |  +--2100 - CLP
-  |  +--2110 - SVC
-  |  +--SE - SE  
-  |  +--GE - GE  
-  |  +--IEA - IEA
+  |  +--ISA   - ISA
+  |  +--GS    - GS
+  |  +--ST    - ST  - 835, - 1
+  |  +--1000A - N1  - PR,  - 1
+  |  +--1000B - N1  - PE,  - 1
+  |  +--2000  - LX
+  |  +--2100  - CLP
+  |  +--2110  - SVC
+  |  +--SE    - SE  
+  |  +--GE    - GE  
+  |  +--IEA   - IEA
 
 Format:
 LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
@@ -51,17 +51,17 @@ Here is a sample 835 hierarchy with the actual loop hierarchy.
 
 {{{
  +--X12
- |  +--ISA - ISA
- |  |  +--GS - GS
- |  |  |  +--ST - ST - 835, - 1
- |  |  |  |  +--1000A - N1 - PR, - 1
- |  |  |  |  +--1000B - N1 - PE, - 1
- |  |  |  |  +--2000 - LX
- |  |  |  |  |  +--2100 - CLP
+ |  +--ISA                 - ISA
+ |  |  +--GS               - GS
+ |  |  |  +--ST            - ST   - 835, - 1
+ |  |  |  |  +--1000A      - N1   - PR,  - 1
+ |  |  |  |  +--1000B      - N1   - PE,  - 1
+ |  |  |  |  +--2000       - LX
+ |  |  |  |  |  +--2100    - CLP
  |  |  |  |  |  |  +--2110 - SVC
- |  |  |  +--SE - SE
- |  |  +--GE - GE
- |  +--IEA - IEA
+ |  |  |  +--SE            - SE
+ |  |  +--GE               - GE
+ |  +--IEA                 - IEA
 
 Format:
 LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
