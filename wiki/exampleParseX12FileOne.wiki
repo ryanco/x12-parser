@@ -69,9 +69,8 @@ System.out.println("Total Charged Amount = " + totalChargeAmount.toString());
 }}}
 
 
-
+Don't need the loops. Alternate way.
 {{{
-// Alternate way
 Double totalChargeAmount = 0.0;
 
 List<Segment> segments = x12.findSegment("CLP");
