@@ -12,26 +12,6 @@ There are two steps
 
 === Load/Create a configuration object ===
 
-This is the loop hierarchy of a 835 transaction used here.
-  
-{{{
- +--X12
- |  +--ISA - ISA
- |  |  +--GS - GS
- |  |  |  +--ST - ST - 835, - 1
- |  |  |  |  +--1000A - N1 - PR, - 1
- |  |  |  |  +--1000B - N1 - PE, - 1
- |  |  |  |  +--2000 - LX
- |  |  |  |  |  +--2100 - CLP
- |  |  |  |  |  |  +--2110 - SVC
- |  |  |  +--SE - SE
- |  |  +--GE - GE
- |  +--IEA - IEA
-
-Format:
-LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
-}}}
-
 Example of how to create a configuration object for the above hierarchy.
 
 {{{ 
@@ -59,6 +39,7 @@ private static Cf loadCf() {
     return cfX12;
 }
 }}}
+For more details on creating configuration object check [https://code.google.com/p/x12-parser/wiki/exampleConfigurationLoading example].
 
 === Parse the X12 file ===
 
