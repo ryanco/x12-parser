@@ -34,16 +34,22 @@ Example of how to create a configuration object for the above hierarchy.
 {{{ 
 private static Cf loadCf() {
         Cf cfX12 = new Cf("X12");
+
         Cf cfISA = cfX12.addChild("ISA", "ISA");
         Cf cfGS = cfISA.addChild("GS", "GS");
         Cf cfST = cfGS.addChild("ST", "ST", "835", 1);
+
         cfST.addChild("1000A", "N1", "PR", 1);
         cfST.addChild("1000B", "N1", "PE", 1);
+
         Cf cf2000 = cfST.addChild("2000", "LX");
+
         Cf cf2100 = cf2000.addChild("2100", "CLP");
         cf2100.addChild("2110", "SVC");
+
         cfISA.addChild("GE", "GE");
         cfX12.addChild("IEA", "IEA");
+
         //System.out.println(cfX12);
         return cfX12;
 }
