@@ -1,4 +1,4 @@
-# X12 Parsing with Loop detection.
+# X12 Configuration for Loop Detection
 
 = Introduction =
 
