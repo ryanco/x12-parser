@@ -1,15 +1,20 @@
-#Example showing X12 Parser reading a X12 file and looping over the segments.
+Example showing X12 Parser reading a X12 file and looping over the segments.
 
 = Introduction =
 
-Example of parsing a X12 file.
+Example of parsing a X12 file (with loop identification).
 
 = Details =
 
-This is the loop hierarchy of a 835 transaction used here.
+There are two steps
+  # Load/Create the X12 configuration object (based on the X12 transaction) to be parsed.
+  # Parse the X12 file.
 
-{{{
+=== Load/Create a configuration object ===
+
+This is the loop hierarchy of a 835 transaction used here.
   
+{{{
  +--X12
  |  +--ISA - ISA
  |  |  +--GS - GS
@@ -22,27 +27,12 @@ This is the loop hierarchy of a 835 transaction used here.
  |  |  |  +--SE - SE
  |  |  +--GE - GE
  |  +--IEA - IEA
-
 }}}
 
+Example of how to create a configuration object for the above hierarchy.
+
 {{{ 
- Cf cf835 = loadCf();
- Parser parser = new X12Parser(cf835);
- // The configuration Cf can be loaded using DI framework.
- // Check the sample spring application context file provided.
-    
- Double totalChargeAmount = 0.0;
- X12 x12 = (X12) parser.parse(new File("C:\\test\\835.txt"));
- List<Segment> segments = x12.findSegment("CLP");
- for (Segment s : segments) {
-     totalChargeAmount = totalChargeAmount + Double.parseDouble(s.getElement(3));
- }
- System.out.println("Total Change Amount " + s.getElement(3));
- 
- 
- Example of how to create a configuration object for the above hierarchy
- 
- private static Cf loadCf() {
+private static Cf loadCf() {
         Cf cfX12 = new Cf("X12");
         Cf cfISA = cfX12.addChild("ISA", "ISA");
         Cf cfGS = cfISA.addChild("GS", "GS");
@@ -56,5 +46,24 @@ This is the loop hierarchy of a 835 transaction used here.
         cfX12.addChild("IEA", "IEA");
         //System.out.println(cfX12);
         return cfX12;
+}
+}}}
+
+=== Parse the X12 file ===
+
+{{{ 
+ Cf cf835 = loadCf();
+ // The configuration Cf can be loaded using DI framework.
+ // Check the sample spring application context file provided.
+
+ Parser parser = new X12Parser(cf835);
+    
+ Double totalChargeAmount = 0.0;
+ X12 x12 = (X12) parser.parse(new File("C:\\test\\835.txt"));
+ List<Segment> segments = x12.findSegment("CLP");
+ for (Segment s : segments) {
+     totalChargeAmount = totalChargeAmount + Double.parseDouble(s.getElement(3));
  }
+ System.out.println("Total Change Amount " + s.getElement(3));
+  
 }}}
