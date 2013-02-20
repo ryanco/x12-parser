@@ -22,10 +22,9 @@ Here is a sample 835 hierarchy which is flattened. Some may not be interested in
   |  +--GE    - GE  
   |  +--IEA   - IEA
 
+Format: LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
+Note: Separate multiple qualifiers with a COMMA.
 }}}
-*Format:*
-`LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition`
-_Note: Separate multiple qualifiers with a COMMA._
 
 {{{    
 Cf cfX12 = new Cf("X12");
@@ -63,10 +62,9 @@ Here is a sample 835 hierarchy with the actual loop hierarchy.
  |  |  +--GE               - GE
  |  +--IEA                 - IEA
 
+Format: LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
+Note: Separate multiple qualifiers with a COMMA.
 }}}
-*Format:*
-`LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition`
-_Note: Separate multiple qualifiers with a COMMA._
 
 Example of how to create a configuration object for the above hierarchy.
 
