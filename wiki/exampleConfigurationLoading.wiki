@@ -27,8 +27,7 @@ Here is a sample 835 hierarchy which is flattened. Some may not be interested in
 `LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition`
 _Note: Separate multiple qualifiers with a COMMA._
 
-{{{
-    
+{{{    
 Cf cfX12 = new Cf("X12");
 
 cfX12.addChild("ISA", "ISA");
