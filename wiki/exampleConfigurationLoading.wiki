@@ -24,8 +24,8 @@ Here is a sample 835 hierarchy which is flattened. Some may not be interested in
 
 Format:
 LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
-Note: Separate multiple qualifiers with a COMMA.
 }}}
+_Note: Separate multiple qualifiers with a COMMA._
 
 {{{
     
@@ -66,8 +66,8 @@ Here is a sample 835 hierarchy with the actual loop hierarchy.
 
 Format:
 LoopName - SegmentId - SegmentQualifier - SegmentQualifierPosition
-Note: Separate multiple qualifiers with a COMMA.
 }}}
+_Note: Separate multiple qualifiers with a COMMA._
 
 Example of how to create a configuration object for the above hierarchy.
 
