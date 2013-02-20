@@ -78,5 +78,5 @@ List<Segment> segments = x12.findSegment("CLP");
 for (Segment s : segments) {
     totalChargeAmount = totalChargeAmount + Double.parseDouble(s.getElement(3));
 }
-System.out.println("Total Change Amount " + s.getElement(3));  
+System.out.println("Total Charged Amount = " + totalChargeAmount.toString());
 }}}
