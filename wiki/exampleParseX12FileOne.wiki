@@ -1,8 +1,8 @@
-Example showing X12 Parser reading a X12 file and looping over the segments.
+# X12 Parsing with Loop detection.
 
 = Introduction =
 
-Example of parsing a X12 file (with loop identification).
+Example of parsing a X12 file.
 
 = Details =
 
@@ -39,7 +39,7 @@ private static Cf loadCf() {
     return cfX12;
 }
 }}}
-For more details on creating configuration object check [https://code.google.com/p/x12-parser/wiki/exampleConfigurationLoading example].
+For more details on creating configuration object check [https://code.google.com/p/x12-parser/wiki/exampleConfigurationLoading Creating X12 configuration].
 
 === Parse the X12 file ===
 
