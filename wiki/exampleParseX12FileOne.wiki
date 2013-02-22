@@ -12,8 +12,7 @@ There are two steps
 
 === Load/Create a configuration object ===
 
-Example of how to create a configuration object for the above hierarchy.
-
+Example of creating an X12 configuration object for a 835 transaction.
 {{{ 
 
 private static Cf loadCf() {
