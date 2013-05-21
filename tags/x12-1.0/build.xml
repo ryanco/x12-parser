@@ -1,0 +1,70 @@
+<project name="X12" default="dist" basedir=".">
+	<description>
+		X12 build file
+    </description>
+	<!-- set global properties for this build -->
+	<property name="current.dir" location="." />
+	<property name="src.dir" location="src" />
+	<property name="target.dir" location="target" />
+	<property name="lib.dir" location="src/main/java" />
+	<property name="test.dir" location="src/test/java" />
+	<property name="build.dir" location="target/classes" />
+	<property name="dist.dir" location="target/lib" />
+	<property name="report.dir" location="target/test-report" />
+
+	<path id="junit.class.path">
+		<pathelement location="lib/junit.jar" />
+		<pathelement location="${build.dir}" />
+	</path>
+	
+	<target name="init">
+	</target>
+
+	<target name="compile" depends="clean, init" description="compile the source">
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="${lib.dir}" destdir="${build.dir}" includeantruntime="true"/>
+	</target>
+
+	<target name="compile-test" depends="clean, init, compile" description="compile the tests">
+		<javac srcdir="${test.dir}" destdir="${build.dir}" includeantruntime="true">
+			<classpath refid="junit.class.path" />			
+		</javac>
+	</target>
+	
+	<target name="dist" depends="clean, init, compile" description="generate the distribution">
+		<mkdir dir="${dist.dir}" />
+		<copy todir="${build.dir}">
+			<fileset file="LICENSE-2.0.txt"/>
+			<fileset file="README.txt"/>			
+		</copy>		
+		<jar jarfile="${dist.dir}/X12-V1.0.jar" 
+			basedir="${build.dir}" 
+			includes="**" />
+		<jar jarfile="${dist.dir}/X12-V1.0-src.jar" 
+			basedir="${current.dir}"
+			includes="src/**, build.xml, LICENSE-2.0.txt, README.txt" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${report.dir}" />
+	</target>
+	
+	<target name="test" depends="compile-test">
+		<mkdir dir="${report.dir}" />
+		<copy todir="${build.dir}">
+			<fileset file="src\examples\java\org\pb\x12\example\example835One.txt"/>
+			<fileset file="src\examples\java\org\pb\x12\example\example835SpecialCharsOne.txt"/>			
+		</copy>				
+		<junit printsummary="on" fork="true" haltonfailure="yes">
+			<classpath refid="junit.class.path" />
+			<formatter type="plain"/>
+			<batchtest todir="${report.dir}">
+				<fileset dir="${test.dir}">
+					<include name="**/*Test*" />
+				</fileset>
+			</batchtest>			
+		</junit>
+	</target>
+</project>
