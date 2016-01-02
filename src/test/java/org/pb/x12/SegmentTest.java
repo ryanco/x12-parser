@@ -15,26 +15,34 @@ public class SegmentTest {
 	@Test
 	public void testAddElementString() {
 		Segment s = new Segment(new Context('~', '*', ':'));
-		assertEquals(new Boolean(true), s.addElement("ISA"));
+		assertEquals(true, s.addElement("ISA"));
 	}
 
 	@Test
 	public void testAddElements() {
 		Segment s = new Segment(new Context('~', '*', ':'));
-		assertEquals(new Boolean(true), s.addElements("ISA", "ISA01", "ISA02"));
+		assertEquals(true, s.addElements("ISA", "ISA01", "ISA02"));
+	}
+
+	@Test
+	public void testAddElementByIndex() {
+		Segment s = new Segment(new Context('~', '*', ':'));
+		s.addElements("ISA", "ISA01", "ISA02");
+		assertEquals(true, s.addElement(1, "ISA00"));
+		assertEquals("ISA00", s.getElement(1));
 	}
 
 	@Test
 	public void testAddCompositeElementStringArray() {
 		Segment s = new Segment(new Context('~', '*', ':'));
-		assertEquals(new Boolean(true), s.addCompositeElement("AB", "CD", "EF"));
+		assertEquals(true, s.addCompositeElement("AB", "CD", "EF"));
 	}
 
 	@Test
 	public void testAddElementIntString() {
 		Segment s = new Segment(new Context('~', '*', ':'));
 		s.addElements("ISA", "ISA01", "ISA02");
-		assertEquals(new Boolean(true), s.addCompositeElement("ISA03_1", "ISA03_2", "ISA03_3"));
+		assertEquals(true, s.addCompositeElement("ISA03_1", "ISA03_2", "ISA03_3"));
 	}
 
 	@Test

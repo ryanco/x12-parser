@@ -26,7 +26,6 @@ import java.util.List;
  * @author Prasad Balan
  */
 public class Segment implements Iterable<String> {
-	private static final long serialVersionUID = 1L;
 	private static final String EMPTY_STRING = "";
 	
 	private Context context;
@@ -60,7 +59,7 @@ public class Segment implements Iterable<String> {
 	 * added at the end of the elements in the current segment. e.g.
 	 * <code>addElements("ISA*ISA01*ISA02");</code>
 	 * 
-	 * @param s
+	 * @param s the element to add.
 	 * @return boolean
 	 */
 	public boolean addElements(String s) {
@@ -72,7 +71,7 @@ public class Segment implements Iterable<String> {
 	 * Adds <code>String</code> elements to the segment. The elements are added
 	 * at the end of the elements in the current segment. e.g.
 	 * <code> addElements("ISA", "ISA01", "ISA02");</code>
-	 * @param es
+	 * @param es elements to add.
 	 * @return boolean
 	 */
 	public boolean addElements(String... es) {
@@ -105,10 +104,11 @@ public class Segment implements Iterable<String> {
 	 * 
 	 * @param e
 	 *            the element to be added
-	 * @return boolean
+	 * @return boolean true if element matches the element at the index provided.
 	 */
 	public boolean addElement(int index, String e) {
-		return this.elements.add(e);
+		this.elements.add(index, e);
+		return elements.get(index).equals(e);
 	}
 
 	/**
@@ -159,7 +159,6 @@ public class Segment implements Iterable<String> {
 	 * 
 	 * @return Iterator<String>
 	 */
-	@Override
 	public Iterator<String> iterator() {
 		return elements.iterator();
 	}
@@ -167,8 +166,8 @@ public class Segment implements Iterable<String> {
 	/**
 	 * Removes the element at the specified position in this list.
 	 * 
-	 * @param index
-	 * @return
+	 * @param index the index at which to remove the element.
+	 * @return String element that was removed.
 	 */
 	public String removeElement(int index) {
 		return elements.remove(index);
@@ -252,7 +251,8 @@ public class Segment implements Iterable<String> {
 	/**
 	 * Returns the X12 representation of the segment.
 	 * 
-	 * @param bRemoveTrailingEmptyElements
+	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
+	 *        trailing elements should be removed.
 	 * @return <code>String</code>
 	 */
 	public String toString(boolean bRemoveTrailingEmptyElements) {
@@ -264,25 +264,36 @@ public class Segment implements Iterable<String> {
 	/**
 	 * Returns the XML representation of the segment.
 	 * 
-	 * @return <code>String</code>
+	 * @return <code>String</code> XML representation of the segement.
 	 */
 	public String toXML() {
 		StringBuilder dump = new StringBuilder();
-		dump.append("<" + this.elements.get(0) + ">");
+		dump.append("<");
+		dump.append(this.elements.get(0));
+		dump.append(">");
 		for (int i = 1; i < this.elements.size(); i++) {
-			dump.append("<" + this.elements.get(0) + String.format("%1$02d", i) + "><![CDATA[");
+			dump.append("<");
+			dump.append(this.elements.get(0));
+			dump.append(String.format("%1$02d", i));
+			dump.append("><![CDATA[");
 			dump.append(this.elements.get(i));
-			dump.append("]]></" + this.elements.get(0) + String.format("%1$02d", i) + ">");
+			dump.append("]]></");
+			dump.append(this.elements.get(0));
+			dump.append(String.format("%1$02d", i));
+			dump.append(">");
 		}
-		dump.append("</" + this.elements.get(0) + ">");
+		dump.append("</");
+		dump.append(this.elements.get(0));
+		dump.append(">");
 		return dump.toString();
 	}
 
 	/**
 	 * Returns the XML representation of the segment.
 	 * 
-	 * @param bRemoveTrailingEmptyElements
-	 * @return <code>String</code>
+	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
+	 *        trailing elements should be removed.
+	 * @return <code>String</code> XML representation of the segment.
 	 */
 	public String toXML(boolean bRemoveTrailingEmptyElements) {
 		if (bRemoveTrailingEmptyElements)
