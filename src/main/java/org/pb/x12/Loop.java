@@ -31,7 +31,6 @@ import java.util.ArrayList;
  */
 
 public class Loop implements Iterable<Segment> {
-	private static final long serialVersionUID = 1L;
 	private Context context;
 	private String name;
 	private List<Segment> segments = new ArrayList<Segment>();
@@ -262,7 +261,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the <code>Loop<code> at the specified position.
 	 * 
-	 * @param index
+	 * @param index the index from which to return the loop.
 	 * @return Loop at the specified index
 	 */
 	public Loop getLoop(int index) {
@@ -288,8 +287,17 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns the <code>Segment<code> at the specified position.
+	 *
+	 * @return Segment at the specified index
+	 */
+	public Segment getSegment() {
+		return getSegment(0);
+	}
+
+	/**
+	 * Returns the <code>Segment<code> at the specified position.
 	 * 
-	 * @param index
+	 * @param index the index from which to get the segment.
 	 * @return Segment at the specified index
 	 */
 	public Segment getSegment(int index) {
@@ -319,7 +327,6 @@ public class Loop implements Iterable<Segment> {
 	 * 
 	 * @return Iterator<Segment>
 	 */
-	@Override
 	public Iterator<Segment> iterator() {
 		return segments.iterator();
 	}
@@ -327,8 +334,8 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Removes the loop at the specified position in this list.
 	 * 
-	 * @param index
-	 * @return
+	 * @param index the index of the loop to remove.
+	 * @return the loop that was removed.
 	 */
 	public Loop removeLoop(int index) {
 		return loops.remove(index);
@@ -337,8 +344,8 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Removes the segment at the specified position in this list.
 	 * 
-	 * @param index
-	 * @return
+	 * @param index the index of the segment to remove.
+	 * @return the segment that was removed.
 	 */
 	public Segment removeSegment(int index) {
 		return segments.remove(index);
@@ -359,7 +366,7 @@ public class Loop implements Iterable<Segment> {
 	 * @return size
 	 */
 	public int size() {
-		int size = 0;
+		int size;
 		size = this.segments.size();
 		for (Loop l : this.childList()) {
 			size += l.size();
@@ -370,7 +377,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Sets the context of the current transaction.
 	 * 
-	 * @param context
+	 * @param context the context to set for the current transaction.
 	 */
 	public void setContext(Context context) {
 		this.context = context;
@@ -410,8 +417,8 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * 
-	 * @param parent
+	 * Sets the parent to the specified Loop.
+	 * @param parent the loop to use as the parent of this loop.
 	 */
 	public void setParent(Loop parent) {
 		this.parent = parent;
@@ -488,8 +495,9 @@ public class Loop implements Iterable<Segment> {
 	 * Returns the Loop in X12 <code>String</code> format. This method is used
 	 * to convert the X12 object into a X12 transaction.
 	 * 
-	 * @param bRemoveTrailingEmptyElements
-	 * @return
+	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
+	 *        trailing elements should be removed.
+	 * @return String representation of the loop.
 	 */
 	public String toString(boolean bRemoveTrailingEmptyElements) {
 		StringBuilder dump = new StringBuilder();
@@ -517,8 +525,9 @@ public class Loop implements Iterable<Segment> {
 	 * Returns the Loop in XML <code>String</code> format. This method is used
 	 * to convert the X12 object into a XML string.
 	 * 
-	 * @param bRemoveTrailingEmptyElements
-	 * @return
+	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
+	 *        trailing elements should be removed.
+	 * @return String the loop in XML string format.
 	 */
 	public String toXML(boolean bRemoveTrailingEmptyElements) {
 		StringBuilder dump = new StringBuilder();

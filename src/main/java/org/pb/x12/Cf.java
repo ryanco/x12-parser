@@ -156,11 +156,11 @@ public class Cf {
 	}
 
 	public boolean hasChildren() {
-		return this.children.size() > 0 ? true : false;
+		return this.children.size() > 0;
 	}
 
 	public boolean hasParent() {
-		return this.parent == null ? false : true;
+		return this.parent != null;
 	}
 
 	public Cf getParent() {

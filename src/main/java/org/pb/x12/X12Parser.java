@@ -58,7 +58,6 @@ public class X12Parser implements Parser {
 	 * @throws FormatException
 	 * @throws IOException
 	 */
-	@Override
 	public EDI parse(File fileName) throws FormatException, IOException {
 		final char[] buffer = new char[SIZE];
 		FileReader fr = new FileReader(fileName);
@@ -80,9 +79,9 @@ public class X12Parser implements Parser {
 
 	/**
 	 * private helper method
-	 * @param scanner
-	 * @param context
-	 * @return
+	 * @param scanner - the scanner to use in scanning.
+	 * @param context - context for the scanner.
+	 * @return X12 object found by the scanner.
 	 */
 	private X12 scanSource(Scanner scanner, Context context) {
 		Character segmentSeparator = context.getSegmentSeparator();
@@ -122,11 +121,10 @@ public class X12Parser implements Parser {
 	 * @throws FormatException
 	 * @throws IOException
 	 */
-	@Override
 	public EDI parse(InputStream source) throws FormatException, IOException {
 		StringBuilder strBuffer = new StringBuilder();
 		char[] cbuf = new char[1024];
-		int length = -1;
+		int length;
 
 		Reader reader = new BufferedReader(new InputStreamReader(source));
 
@@ -147,9 +145,7 @@ public class X12Parser implements Parser {
 	 *            String
 	 * @return the X12 object
 	 * @throws FormatException
-	 * @throws IOException
 	 */
-	@Override
 	public EDI parse(String source) throws FormatException {
 		if (source.length() < SIZE) {
 			throw new FormatException();
@@ -193,7 +189,7 @@ public class X12Parser implements Parser {
 	 * Checks if the segment (or line read) matches to any of the child loops
 	 * configuration.
 	 * 
-	 * @param cf
+	 * @param parent
 	 *            Cf
 	 * @param tokens
 	 *            String[] represents the segment broken into elements
@@ -213,7 +209,7 @@ public class X12Parser implements Parser {
 	 * Checks if the segment (or line read) matches the parent loop
 	 * configuration.
 	 * 
-	 * @param cf
+	 * @param child
 	 *            Cf
 	 * @param tokens
 	 *            String[] represents the segment broken into elements
@@ -233,10 +229,8 @@ public class X12Parser implements Parser {
 				return true;
 			}
 		}
-		
-		if (doesParentLoopMatch(parent, tokens, loopMarker))
-			return true;
-		
-		return false;
+
+		return doesParentLoopMatch(parent, tokens, loopMarker);
+
 	}
 }

@@ -101,7 +101,7 @@ public class LoopTest {
 		Loop loop = new Loop(new Context('~', '*', ':'), "ISA");
 		loop.addChild("GS");
 		loop.addChild("ST");
-		assertEquals(new Boolean(true), new Boolean(loop.hasLoop("ST")));
+		assertEquals(true, loop.hasLoop("ST"));
 	}
 
 	@Test
@@ -374,6 +374,27 @@ public class LoopTest {
 		assertEquals(
 				"<LOOP NAME=\"ST\"><ST><ST01><![CDATA[835]]></ST01><ST02><![CDATA[000000001]]></ST02></ST></LOOP>",
 				loop.toXML());
+	}
+
+	@Test
+	public void testGetDepth() {
+		int expectedDepth = 0;
+		int expectedChildDepth = 1;
+		Loop loop = new Loop(new Context('~', '*', ':'), "ISA");
+		loop.addChild("GS");
+		loop.addChild("ST");
+		loop.addChild("1000A");
+		loop.addChild("1000B");
+		loop.addChild("2000");
+		loop.addChild("2100");
+		loop.addChild("2110");
+		loop.addChild("GE");
+		loop.addChild("IEA");
+		Loop child = loop.getLoop(0);
+		int actualChildDepth = child.getDepth();
+		int actualDepth = loop.getDepth();
+		assertEquals(expectedDepth, actualDepth);
+		assertEquals(expectedChildDepth, actualChildDepth);
 	}
 
 }
