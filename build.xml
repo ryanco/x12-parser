@@ -35,7 +35,7 @@
 		<mkdir dir="${dist.dir}" />
 		<copy todir="${build.dir}">
 			<fileset file="LICENSE-2.0.txt"/>
-			<fileset file="README.txt"/>			
+			<fileset file="README.md"/>
 		</copy>		
 		<jar jarfile="${dist.dir}/X12-V1.0.jar" 
 			basedir="${build.dir}" 
