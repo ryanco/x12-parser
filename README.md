@@ -1,6 +1,7 @@
-X12 Parser 
 [![Build Status](https://travis-ci.org/ryanco/x12-parser.svg?branch=master)](https://travis-ci.org/ryanco/x12-parser)
-Current Version : V1.0
+X12 Parser
+==========
+Current Version: V1.0
 
 CHANGES
 -------------------------------------------------------------------------------
