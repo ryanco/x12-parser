@@ -101,6 +101,17 @@ public class X12SimpleTest {
 	}
 
 	@Test
+	public void testGetSegments(){
+		X12Simple x12 = new X12Simple(new Context('~', '*', ':'));
+		x12.addSegment("ISA*ISA01*ISA02*ISA03");
+		x12.addSegment("GS*GS01*GS02*GS03");
+		x12.addSegment("ST*ST01*ST02*ST03");
+		List<Segment> list = x12.getSegments();
+		assertEquals(3, list.size());
+		assertEquals("GS*GS01*GS02*GS03", list.get(1).toString());
+	}
+
+	@Test
 	public void testIterator() {
 		X12Simple x12 = new X12Simple(new Context('~', '*', ':'));
 		assertNotNull(x12.iterator());
