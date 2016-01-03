@@ -50,7 +50,6 @@ public class X12SimpleParser implements Parser {
 	 * @throws FormatException
 	 * @throws IOException
 	 */
-	@Override
 	public EDI parse(File fileName) throws FormatException, IOException {
 		final char[] buffer = new char[SIZE];
 		FileReader fr = new FileReader(fileName);
@@ -90,15 +89,14 @@ public class X12SimpleParser implements Parser {
 	 * @throws FormatException
 	 * @throws IOException
 	 */
-	@Override
 	public EDI parse(InputStream source) throws FormatException, IOException {
 		StringBuilder strBuffer = new StringBuilder();
 		char[] cbuf = new char[1024];
-		int length = -1;
+		int length;
 
 		Reader reader = new BufferedReader(new InputStreamReader(source));
 
-		while ((length = reader.read(cbuf)) != -1) {
+		while (-1 != (length = reader.read(cbuf))) {
 			strBuffer.append(cbuf, 0, length);
 		}
 
@@ -116,9 +114,7 @@ public class X12SimpleParser implements Parser {
 	 *            String
 	 * @return the X12 object
 	 * @throws FormatException
-	 * @throws IOException
 	 */
-	@Override
 	public EDI parse(String source) throws FormatException {
 		if (source.length() < SIZE) {
 			throw new FormatException();
