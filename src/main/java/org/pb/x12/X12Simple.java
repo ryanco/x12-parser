@@ -31,7 +31,6 @@ import java.util.List;
  */
 
 public class X12Simple implements EDI, Iterable<Segment> {
-	private static final long serialVersionUID = 1L;
 	private Context context;
 	private List<Segment> segments;
 
@@ -164,7 +163,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Returns the <code>Segment<code> at the specified position.
 	 * 
-	 * @param index
+	 * @param index the position of the segment to return.
 	 * @return Segment at the specified index
 	 */
 	public Segment getSegment(int index) {
@@ -172,7 +171,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * 
+	 * Returns the <code>List</code> of <code>Segment</code>.
 	 * @return List of segments
 	 */
 	public List<Segment> getSegments() {
@@ -184,7 +183,6 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * 
 	 * @return Iterator<String>
 	 */
-	@Override
 	public Iterator<Segment> iterator() {
 		return segments.iterator();
 	}
@@ -192,8 +190,8 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Removes the segment at the specified position in this list.
 	 * 
-	 * @param index
-	 * @return
+	 * @param index the position of the segment to remove.
+	 * @return <code>Segment</code>
 	 */
 	public Segment removeSegment(int index) {
 		return segments.remove(index);
@@ -202,7 +200,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Sets the context of the current transaction.
 	 * 
-	 * @param context
+	 * @param context the context to apply to this object.
 	 */
 	public void setContext(Context context) {
 		this.context = context;
@@ -277,8 +275,9 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Returns the X12 representation of the segment.
 	 * 
-	 * @param bRemoveTrailingEmptyElements
-	 * @return
+	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
+	 *        trailing elements should be removed.
+	 * @return the segment as an X12 string.
 	 */
 	public String toString(boolean bRemoveTrailingEmptyElements) {
 		StringBuilder dump = new StringBuilder();
@@ -303,8 +302,9 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Returns the X12 transaction in XML format. This method translates the X12
 	 * object into XML format.
 	 * 
-	 * @param bRemoveTrailingEmptyElements
-	 * @return XML
+	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
+	 *        trailing elements should be removed.
+	 * @return the X12 as an XML string.
 	 */
 	public String toXML(boolean bRemoveTrailingEmptyElements) {
 		StringBuilder dump = new StringBuilder();
