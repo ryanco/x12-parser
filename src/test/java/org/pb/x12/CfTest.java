@@ -175,4 +175,14 @@ public class CfTest {
 				+ System.getProperty("line.separator"), cf.toString());
 	}
 
+	@Test
+	public void testToStringWithNesting() {
+		Cf cf = new Cf("1000A", "NM1", "41", 1);
+		Cf child = new Cf("10000B", "NM1", "41", 1);
+		cf.addChild(child);
+		assertEquals("+--1000A - NM1 - 41, - 1"
+				+ System.getProperty("line.separator")
+				+ "|  "+"+--10000B - NM1 - 41, - 1"
+				+ System.getProperty("line.separator"), cf.toString());
+	}
 }
