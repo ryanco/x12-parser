@@ -286,9 +286,9 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the <code>Segment<code> at the specified position.
+	 * Returns the <code>Segment<code> at the default position.
 	 *
-	 * @return Segment at the specified index
+	 * @return Segment at the default index
 	 */
 	public Segment getSegment() {
 		return getSegment(0);
