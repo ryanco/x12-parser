@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import java.util.List;
+
 public class SegmentTest {
 
 	@Test
@@ -13,9 +15,20 @@ public class SegmentTest {
 	}
 
 	@Test
+	//There is no test for AddElements returning false because
+	//the underlying ArrayList will never return false on an add.
 	public void testAddElementString() {
 		Segment s = new Segment(new Context('~', '*', ':'));
 		assertEquals(true, s.addElement("ISA"));
+	}
+
+	@Test
+	public void testAddElementDuplicateString() {
+		Context context = new Context('~', '*', ':');
+		Segment s = new Segment(context);
+		String value = "ISA";
+		assertEquals(true, s.addElement(value));
+		assertEquals(true, s.addElement(value));
 	}
 
 	@Test
@@ -64,6 +77,14 @@ public class SegmentTest {
 		Segment s = new Segment(new Context('~', '*', ':'));
 		s.addElements("ISA", "ISA01", "ISA02", "ISA03");
 		assertEquals("ISA02", s.getElement(2));
+	}
+
+	@Test
+	public void testGetElements() {
+		Segment s = new Segment(new Context('~', '*', ':'));
+		s.addElements("ISA", "ISA01", "ISA02", "ISA03");
+		List<String> actualElements = s.getElements();
+		assertEquals(4, actualElements.size());
 	}
 
 	@Test
@@ -150,6 +171,16 @@ public class SegmentTest {
 		assertEquals(
 				"<ISA><ISA01><![CDATA[01]]></ISA01><ISA02><![CDATA[02]]></ISA02><ISA03><![CDATA[03_1:03_2:03_3]]></ISA03><ISA04><![CDATA[04]]></ISA04></ISA>",
 				s.toXML());
+	}
+
+	@Test
+	public void testToXMLRemoveTrailingEmptyTags() {
+		Segment s = new Segment(new Context('~', '*', ':'));
+		s.addElements("ISA", "01", "02", "03", "04", null, null);
+		s.setCompositeElement(3, "03_1", "03_2", "03_3");
+		assertEquals(
+				"<ISA><ISA01><![CDATA[01]]></ISA01><ISA02><![CDATA[02]]></ISA02><ISA03><![CDATA[03_1:03_2:03_3]]></ISA03><ISA04><![CDATA[04]]></ISA04></ISA>",
+				s.toXML(true));
 	}
 
 }
