@@ -19,8 +19,9 @@ package org.pb.x12;
 /**
  * This class represents the format errors in the X12 transaction that is being
  * read to construct the X12 object.
- * 
+ *
  * @author Prasad Balan
+ * @version $Id: $Id
  */
 public class FormatException extends Exception {
 	private static final long serialVersionUID = 1L;

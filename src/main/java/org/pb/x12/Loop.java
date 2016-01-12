@@ -25,11 +25,10 @@ import java.util.ArrayList;
  * transaction. The building block of an X12 transaction is an element. Some
  * elements may be made of sub elements. Elements combine to form segments.
  * Segments are grouped as loops. And a set of loops form an X12 transaction.
- * 
+ *
  * @author Prasad Balan
- * 
+ * @version $Id: $Id
  */
-
 public class Loop implements Iterable<Segment> {
 	private Context context;
 	private String name;
@@ -40,9 +39,10 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * The constructor takes a context object.
-	 * 
+	 *
 	 * @param c
 	 *            a Context object
+	 * @param name a {@link java.lang.String} object.
 	 */
 	public Loop(Context c, String name) {
 		this.context = c;
@@ -54,7 +54,7 @@ public class Loop implements Iterable<Segment> {
 	 * Creates an empty instance of <code>Loop</code> and adds the loop as a
 	 * child to the current Loop. The returned instance can be used to add
 	 * segments to the child loop.
-	 * 
+	 *
 	 * @param name
 	 *            name of the loop
 	 * @return a new child Loop object
@@ -69,9 +69,10 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Inserts <code>Loop</code> as a child loop at the specified position.
-	 * 
+	 *
 	 * @param index
 	 *            position at which to add the loop.
+	 * @param loop a {@link org.pb.x12.Loop} object.
 	 */
 	public void addChild(int index, Loop loop) {
 		loop.setParent(this);
@@ -83,7 +84,7 @@ public class Loop implements Iterable<Segment> {
 	 * Creates an empty instance of <code>Segment</code> and adds the segment to
 	 * current Loop. The returned instance can be used to add elements to the
 	 * segment.
-	 * 
+	 *
 	 * @return a new Segment object
 	 */
 	public Segment addSegment() {
@@ -95,7 +96,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Takes a <code>String</code> representation of segment, creates a
 	 * <code>Segment</code> object and adds the segment to the current Loop.
-	 * 
+	 *
 	 * @param segment
 	 *            <code>String</code> representation of the Segment.
 	 * @return a new Segment object
@@ -110,7 +111,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Adds <code>Segment</code> at the end of the current Loop
-	 * 
+	 *
 	 * @param segment
 	 *            <code>Segment</code>
 	 */
@@ -122,7 +123,7 @@ public class Loop implements Iterable<Segment> {
 	 * Creates an empty instance of <code>Segment</code> and adds the segment at
 	 * the specified position in the current Loop. The returned instance can be
 	 * used to add elements to the segment.
-	 * 
+	 *
 	 * @param index
 	 *            position at which to add the segment.
 	 * @return a new Segment object
@@ -137,7 +138,7 @@ public class Loop implements Iterable<Segment> {
 	 * Takes a <code>String</code> representation of segment, creates a
 	 * <code>Segment</code> object and adds the segment at the specified
 	 * position in the current Loop.
-	 * 
+	 *
 	 * @param index
 	 *            position to add the segment.
 	 * @param segment
@@ -154,7 +155,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Adds <code>Segment</code> at the specified position in current Loop.
-	 * 
+	 *
 	 * @param index
 	 *            position to add the segment.
 	 * @param segment
@@ -168,7 +169,7 @@ public class Loop implements Iterable<Segment> {
 	 * Creates an empty instance of <code>Loop</code> and inserts the loop as a
 	 * child loop at the specified position. The returned instance can be used
 	 * to add segments to the child loop.
-	 * 
+	 *
 	 * @param index
 	 *            position at which to add the loop
 	 * @param name
@@ -186,7 +187,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Checks if the Loop contains the specified child Loop. It will check the
 	 * complete child hierarchy.
-	 * 
+	 *
 	 * @param name
 	 *            name of a child loop
 	 * @return boolean
@@ -206,7 +207,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Get the loop in the X12 transaction It will check the complete child
 	 * hierarchy.
-	 * 
+	 *
 	 * @param name
 	 *            name of a loop
 	 * @return List<Loop>
@@ -228,7 +229,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Get the segment in the X12 transaction It will check the current loop and
 	 * the complete child hierarchy.
-	 * 
+	 *
 	 * @param name
 	 *            name of a segment
 	 * @return List<Segment>
@@ -251,7 +252,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns the context of the X12 transaction.
-	 * 
+	 *
 	 * @return Context object
 	 */
 	public Context getContext() {
@@ -260,7 +261,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns the <code>Loop<code> at the specified position.
-	 * 
+	 *
 	 * @param index the index from which to return the loop.
 	 * @return Loop at the specified index
 	 */
@@ -270,7 +271,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns the loops
-	 * 
+	 *
 	 * @return List<Loop>
 	 */
 	public List<Loop> getLoops() {
@@ -278,7 +279,8 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * 
+	 * <p>Getter for the field <code>parent</code>.</p>
+	 *
 	 * @return Parent Loop
 	 */
 	public Loop getParent() {
@@ -296,7 +298,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns the <code>Segment<code> at the specified position.
-	 * 
+	 *
 	 * @param index the index from which to get the segment.
 	 * @return Segment at the specified index
 	 */
@@ -306,7 +308,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns the segments in the current loop.
-	 * 
+	 *
 	 * @return List<Segment>
 	 */
 	public List<Segment> getSegments() {
@@ -315,7 +317,7 @@ public class Loop implements Iterable<Segment> {
 	
 	/**
 	 * Returns the name of the current Loop.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String getName() {
@@ -324,7 +326,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns and <code>Iterator</code> to the segments in the loop.
-	 * 
+	 *
 	 * @return Iterator<Segment>
 	 */
 	public Iterator<Segment> iterator() {
@@ -333,7 +335,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Removes the loop at the specified position in this list.
-	 * 
+	 *
 	 * @param index the index of the loop to remove.
 	 * @return the loop that was removed.
 	 */
@@ -343,7 +345,7 @@ public class Loop implements Iterable<Segment> {
 		
 	/**
 	 * Removes the segment at the specified position in this list.
-	 * 
+	 *
 	 * @param index the index of the segment to remove.
 	 * @return the segment that was removed.
 	 */
@@ -353,7 +355,7 @@ public class Loop implements Iterable<Segment> {
 		
 	/**
 	 * Returns <code>List<Loop></code> of child Loops
-	 * 
+	 *
 	 * @return List<Loop>
 	 */
 	public List<Loop> childList() {
@@ -362,7 +364,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Returns number of segments in Loop and child loops
-	 * 
+	 *
 	 * @return size
 	 */
 	public int size() {
@@ -376,7 +378,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Sets the context of the current transaction.
-	 * 
+	 *
 	 * @param context the context to set for the current transaction.
 	 */
 	public void setContext(Context context) {
@@ -387,9 +389,9 @@ public class Loop implements Iterable<Segment> {
 	 * Creates a new <code>Loop</code> and replaces the child loop at the
 	 * specified position. The returned instance can be used to add segments to
 	 * the child loop.
-	 * 
+	 *
 	 * @param name
-	 *            name of the loop 
+	 *            name of the loop
 	 * @param index
 	 *            position at which to add the loop.
 	 * @return a new child Loop object
@@ -404,11 +406,11 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Replaces child <code>Loop</code> at the specified position.
-	 * 
+	 *
 	 * @param index
 	 *            position at which to add the loop.
 	 * @param loop
-	 *            Loop to add            
+	 *            Loop to add
 	 */
 	public void setChild(int index, Loop loop) {
 		loop.setParent(this);
@@ -418,6 +420,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Sets the parent to the specified Loop.
+	 *
 	 * @param parent the loop to use as the parent of this loop.
 	 */
 	public void setParent(Loop parent) {
@@ -428,7 +431,7 @@ public class Loop implements Iterable<Segment> {
 	 * Creates an empty instance of <code>Segment</code> and replaces the
 	 * segment at specified position in the X12 transaction. The returned
 	 * instance can be used to add elements to the segment.
-	 * 
+	 *
 	 * @param index
 	 *            position at which to add the segment.
 	 * @return a new Segment object
@@ -443,7 +446,7 @@ public class Loop implements Iterable<Segment> {
 	 * Takes a <code>String</code> representation of segment, creates a
 	 * <code>Segment</code> object and replaces the segment at the specified
 	 * position in the X12 transaction.
-	 * 
+	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
@@ -461,7 +464,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Replaces
 	 * <code>Segment<code> at the specified position in X12 transaction.
-	 * 
+	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
@@ -473,7 +476,7 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Sets the name of the current Loop
-	 * 
+	 *
 	 * @param name
 	 *            <code>String</code>
 	 */
@@ -484,7 +487,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the Loop in X12 <code>String</code> format. This method is used
 	 * to convert the X12 object into a X12 transaction.
-	 * 
+	 *
 	 * @return String
 	 */
 	public String toString() {
@@ -494,7 +497,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the Loop in X12 <code>String</code> format. This method is used
 	 * to convert the X12 object into a X12 transaction.
-	 * 
+	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
 	 * @return String representation of the loop.
@@ -514,7 +517,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the Loop in XML <code>String</code> format. This method is used
 	 * to convert the X12 object into a XML string.
-	 * 
+	 *
 	 * @return XML String
 	 */
 	public String toXML() {
@@ -524,7 +527,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the Loop in XML <code>String</code> format. This method is used
 	 * to convert the X12 object into a XML string.
-	 * 
+	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
 	 * @return String the loop in XML string format.
@@ -543,7 +546,8 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Generally not used. Mostly for debugging. 
+	 * Generally not used. Mostly for debugging.
+	 *
 	 * @return depth
 	 */
 	public int getDepth() {

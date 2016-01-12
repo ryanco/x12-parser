@@ -24,16 +24,16 @@ import java.util.List;
  * instance represents items required to identify a Loop in a X12 transaction.
  * Some Loops can be identified by only the segment id. Others require segment
  * id and additional qualifiers to be able to identify the Loop.
- * 
+ *
  * <code>Cf</code> needs to be used in conjunction with X12Parser, to be able to
  * parse a X12 transaction into a loop hierarchy.
- * 
+ *
  * A X12 Cf can be loaded using many ways: custom code O/X mapping DI or any
  * other way you may find appropriate
- * 
+ *
  * A Sample 835 hierarchy is shown below. Each row shows a Cf element, in the
  * format
- * 
+ *
  * <pre>
  *    (A) - (B) - (C) - (D)
  *    (A) - Loop Name
@@ -42,11 +42,11 @@ import java.util.List;
  *          qualifiers they need to be separated by COMMA.
  *    (D) - Position in the segment where the qualifiers are present
  * </pre>
- * 
+ *
  * e.g. In X12 835, Loops 1000A and 1000B have the same segment id (N1), to
  * differentiate them we need additional attributes. The N102 (index 1) element
  * has PR for 1000A loop and PE for 1000B loop.
- * 
+ *
  * <pre>
  * +--X12
  * |  +--ISA - ISA
@@ -61,13 +61,13 @@ import java.util.List;
  * |  |  +--GE - GE
  * |  +--IEA - IEA
  * </pre>
- * 
+ *
  * To parse a X12 835 in the above hierarchy, you need to create a Cf object
  * that represent the hierarchy. Here is the sample code to achieve this.
- * 
+ *
  * <pre>
  * Cf cfX12 = new Cf("X12"); // root node
- * Cf cfISA = cfX12.addChild("ISA", "ISA"); // add as child of X12 
+ * Cf cfISA = cfX12.addChild("ISA", "ISA"); // add as child of X12
  * Cf cfGS = cfISA.addChild("GS", "GS"); // add as child of ISA
  * Cf cfST = cfGS.addChild("ST", "ST", "835", 1); // add as child of GS
  * cfST.addChild("1000A", "N1", "PR", 1); // add as child of ST
@@ -78,12 +78,12 @@ import java.util.List;
  * cfISA.addChild("GE", "GE");
  * cfX12.addChild("IEA", "IEA");
  * </pre>
- * 
+ *
  * Alternate hierarchy for the same transaction. On most occasions a simple
  * hierarchy like below would work. Only when there is more that one loop that
  * is identified by the same segment id and additional qualifiers, you need to
  * put them under the appropriate parent Cf.
- * 
+ *
  * <pre>
  *  +--X12
  *  |  +--ISA - ISA
@@ -94,12 +94,13 @@ import java.util.List;
  *  |  +--2000 - LX
  *  |  +--2100 - CLP
  *  |  +--2110 - SVC
- *  |  +--SE - SE  
- *  |  +--GE - GE  
+ *  |  +--SE - SE
+ *  |  +--GE - GE
  *  |  +--IEA - IEA
  * </pre>
- * 
+ *
  * @author Prasad Balan
+ * @version $Id: $Id
  */
 public class Cf {
 	private String name;
@@ -111,15 +112,34 @@ public class Cf {
 	private List<Cf> children = new ArrayList<Cf>();
 	private Cf parent;
 
+	/**
+	 * <p>Constructor for Cf.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 */
 	public Cf(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * <p>Constructor for Cf.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 * @param segment a {@link java.lang.String} object.
+	 */
 	public Cf(String name, String segment) {
 		this.name = name;
 		this.segment = segment;
 	}
 
+	/**
+	 * <p>Constructor for Cf.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 * @param segment a {@link java.lang.String} object.
+	 * @param segmentQual a {@link java.lang.String} object.
+	 * @param segmentQualPos a {@link java.lang.Integer} object.
+	 */
 	public Cf(String name, String segment, String segmentQual,
 			Integer segmentQualPos) {
 		this.name = name;
@@ -128,12 +148,24 @@ public class Cf {
 		this.segmentQualPos = segmentQualPos;
 	}
 
+	/**
+	 * <p>addChild.</p>
+	 *
+	 * @param cf a {@link org.pb.x12.Cf} object.
+	 */
 	public void addChild(Cf cf) {
 		cf.depth = this.depth + 1;
 		this.children.add(cf);
 		cf.setParent(this);
 	}
 	
+	/**
+	 * <p>addChild.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 * @param segment a {@link java.lang.String} object.
+	 * @return a {@link org.pb.x12.Cf} object.
+	 */
 	public Cf addChild(String name, String segment) {
 		Cf cf = new Cf(name, segment);
 		cf.depth = this.depth + 1;
@@ -142,6 +174,15 @@ public class Cf {
 		return cf;
 	}
 
+	/**
+	 * <p>addChild.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 * @param segment a {@link java.lang.String} object.
+	 * @param segmentQual a {@link java.lang.String} object.
+	 * @param segmentQualPos a {@link java.lang.Integer} object.
+	 * @return a {@link org.pb.x12.Cf} object.
+	 */
 	public Cf addChild(String name, String segment, String segmentQual,
 			Integer segmentQualPos) {
 		Cf cf = new Cf(name, segment, segmentQual, segmentQualPos);
@@ -151,42 +192,92 @@ public class Cf {
 		return cf;
 	}
 	
+	/**
+	 * <p>childList.</p>
+	 *
+	 * @return a {@link java.util.List} object.
+	 */
 	public List<Cf> childList() {
 		return children;
 	}
 
+	/**
+	 * <p>hasChildren.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean hasChildren() {
 		return this.children.size() > 0;
 	}
 
+	/**
+	 * <p>hasParent.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean hasParent() {
 		return this.parent != null;
 	}
 
+	/**
+	 * <p>Getter for the field <code>parent</code>.</p>
+	 *
+	 * @return a {@link org.pb.x12.Cf} object.
+	 */
 	public Cf getParent() {
 		return parent;
 	}
 
+	/**
+	 * <p>Getter for the field <code>name</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * <p>Getter for the field <code>segment</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getSegment() {
 		return segment;
 	}
 
+	/**
+	 * <p>Getter for the field <code>segmentQuals</code>.</p>
+	 *
+	 * @return an array of {@link java.lang.String} objects.
+	 */
 	public String[] getSegmentQuals() {
 		return segmentQuals;
 	}
 
+	/**
+	 * <p>Getter for the field <code>segmentQualPos</code>.</p>
+	 *
+	 * @return a {@link java.lang.Integer} object.
+	 */
 	public Integer getSegmentQualPos() {
 		return segmentQualPos;
 	}
 
+	/**
+	 * <p>Setter for the field <code>parent</code>.</p>
+	 *
+	 * @param cf a {@link org.pb.x12.Cf} object.
+	 */
 	public void setParent(Cf cf) {
 		this.parent = cf;
 	}
 
+	/**
+	 * <p>Setter for the field <code>children</code>.</p>
+	 *
+	 * @param cfList a {@link java.util.List} object.
+	 */
 	public void setChildren(List<Cf> cfList) {
 		this.children = cfList;
 		for (Cf cf : cfList) {
@@ -195,22 +286,47 @@ public class Cf {
 		}
 	}
 
+	/**
+	 * <p>Setter for the field <code>name</code>.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * <p>Setter for the field <code>segment</code>.</p>
+	 *
+	 * @param segment a {@link java.lang.String} object.
+	 */
 	public void setSegment(String segment) {
 		this.segment = segment;
 	}
 
+	/**
+	 * <p>Setter for the field <code>segmentQuals</code>.</p>
+	 *
+	 * @param segmentQuals an array of {@link java.lang.String} objects.
+	 */
 	public void setSegmentQuals(String[] segmentQuals) {
 		this.segmentQuals = segmentQuals;
 	}
 
+	/**
+	 * <p>Setter for the field <code>segmentQualPos</code>.</p>
+	 *
+	 * @param segmentQualPos a {@link java.lang.Integer} object.
+	 */
 	public void setSegmentQualPos(Integer segmentQualPos) {
 		this.segmentQualPos = segmentQualPos;
 	}
 
+	/**
+	 * <p>toString.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String toString() {
 		StringBuilder dump = new StringBuilder();
 		for(int i=0; i < depth; i++){

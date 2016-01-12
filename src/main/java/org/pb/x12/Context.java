@@ -19,8 +19,9 @@ package org.pb.x12;
 /**
  * The class represents an X12 context. A X12 context consists of a segment
  * separator, element separator and a composite element separator.
- * 
+ *
  * @author Prasad Balan
+ * @version $Id: $Id
  */
 public class Context {
 	private Character s;
@@ -37,7 +38,7 @@ public class Context {
 	/**
 	 * Constructor which takes the segment separator, element separator and
 	 * composite element separator as input.
-	 * 
+	 *
 	 * @param s
 	 *            segment separator
 	 * @param e
@@ -53,7 +54,7 @@ public class Context {
 
 	/**
 	 * Returns the composite element separator.
-	 * 
+	 *
 	 * @return composite element separator
 	 */
 	public Character getCompositeElementSeparator() {
@@ -62,7 +63,7 @@ public class Context {
 
 	/**
 	 * Returns the element separator.
-	 * 
+	 *
 	 * @return an element separator
 	 */
 	public Character getElementSeparator() {
@@ -71,7 +72,7 @@ public class Context {
 
 	/**
 	 * Returns the segment separator.
-	 * 
+	 *
 	 * @return a segment separator
 	 */
 	public Character getSegmentSeparator() {
@@ -80,7 +81,7 @@ public class Context {
 
 	/**
 	 * Sets the composite element separator.
-	 * 
+	 *
 	 * @param c
 	 *            the composite element separator.
 	 */
@@ -90,7 +91,7 @@ public class Context {
 
 	/**
 	 * Sets the element separator.
-	 * 
+	 *
 	 * @param e
 	 *            the element separator.
 	 */
@@ -100,7 +101,7 @@ public class Context {
 
 	/**
 	 * Sets the segment separator.
-	 * 
+	 *
 	 * @param s
 	 *            the segment separator
 	 */
@@ -111,6 +112,8 @@ public class Context {
 	/**
 	 * Returns a <code>String</code> consisting of segment, element and
 	 * composite element separator.
+	 *
+	 * @return a {@link java.lang.String} object.
 	 */
 	public String toString() {
 		return "[" + this.s + "," + this.e + "," + this.c + "]";

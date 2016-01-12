@@ -22,8 +22,9 @@ import java.util.List;
 
 /**
  * This class represents an X12 segment.
- * 
+ *
  * @author Prasad Balan
+ * @version $Id: $Id
  */
 public class Segment implements Iterable<String> {
 	private static final String EMPTY_STRING = "";
@@ -34,7 +35,7 @@ public class Segment implements Iterable<String> {
 	/**
 	 * The constructor takes a <code>Context</code> object as input. The context
 	 * object represents the delimiters in a X12 transaction.
-	 * 
+	 *
 	 * @param c
 	 *            the context object
 	 */
@@ -45,7 +46,7 @@ public class Segment implements Iterable<String> {
 	/**
 	 * Adds <code>String</code> element to the segment. The element is added at
 	 * the end of the elements in the current segment.
-	 * 
+	 *
 	 * @param e
 	 *            the element to be added
 	 * @return boolean
@@ -58,7 +59,7 @@ public class Segment implements Iterable<String> {
 	 * Adds <code>String</code> with elements to the segment. The elements are
 	 * added at the end of the elements in the current segment. e.g.
 	 * <code>addElements("ISA*ISA01*ISA02");</code>
-	 * 
+	 *
 	 * @param s the element to add.
 	 * @return boolean
 	 */
@@ -71,6 +72,7 @@ public class Segment implements Iterable<String> {
 	 * Adds <code>String</code> elements to the segment. The elements are added
 	 * at the end of the elements in the current segment. e.g.
 	 * <code> addElements("ISA", "ISA01", "ISA02");</code>
+	 *
 	 * @param es elements to add.
 	 * @return boolean
 	 */
@@ -84,7 +86,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Adds strings as a composite element to the end of the segment.
-	 * 
+	 *
 	 * @param ces
 	 *            sub-elements of a composite element
 	 * @return boolean
@@ -101,10 +103,11 @@ public class Segment implements Iterable<String> {
 	/**
 	 * Inserts <code>String</code> element to the segment at the specified
 	 * position
-	 * 
+	 *
 	 * @param e
 	 *            the element to be added
 	 * @return boolean true if element matches the element at the index provided.
+	 * @param index a int.
 	 */
 	public boolean addElement(int index, String e) {
 		this.elements.add(index, e);
@@ -113,9 +116,10 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Inserts strings as a composite element to segment at specified position
-	 * 
+	 *
 	 * @param ces
 	 *            sub-elements of a composite element
+	 * @param index a int.
 	 */
 	public void addCompositeElement(int index, String... ces) {
 		StringBuilder dump = new StringBuilder();
@@ -128,7 +132,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Returns the context object
-	 * 
+	 *
 	 * @return Context object
 	 */
 	public Context getContext() {
@@ -137,7 +141,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Returns the <code>String<code> element at the specified position.
-	 * 
+	 *
 	 * @param index
 	 *            position
 	 * @return the element at the specified position.
@@ -147,7 +151,8 @@ public class Segment implements Iterable<String> {
 	}
 
 	/**
-	 * 
+	 * <p>Getter for the field <code>elements</code>.</p>
+	 *
 	 * @return List of elements
 	 */
 	public List<String> getElements() {
@@ -156,7 +161,7 @@ public class Segment implements Iterable<String> {
 	
 	/**
 	 * Returns and <code>Iterator</code> to the elements in the segment.
-	 * 
+	 *
 	 * @return Iterator<String>
 	 */
 	public Iterator<String> iterator() {
@@ -165,7 +170,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Removes the element at the specified position in this list.
-	 * 
+	 *
 	 * @param index the index at which to remove the element.
 	 * @return String element that was removed.
 	 */
@@ -188,7 +193,7 @@ public class Segment implements Iterable<String> {
 	
 	/**
 	 * Sets the context of the segment
-	 * 
+	 *
 	 * @param context
 	 *            context object
 	 */
@@ -199,7 +204,7 @@ public class Segment implements Iterable<String> {
 	/**
 	 * Replaces element at the specified position with the specified
 	 * <code>String</code>
-	 * 
+	 *
 	 * @param index
 	 *            position of the element to be replaced
 	 * @param s
@@ -211,9 +216,10 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Replaces composite element at the specified position in segment.
-	 * 
+	 *
 	 * @param ces
 	 *            sub-elements of a composite element
+	 * @param index a int.
 	 */
 	public void setCompositeElement(int index, String... ces) {
 		StringBuilder dump = new StringBuilder();
@@ -226,7 +232,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Returns number of elements in the segment.
-	 * 
+	 *
 	 * @return size
 	 */
 	public int size() {
@@ -235,6 +241,8 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Returns the X12 representation of the segment.
+	 *
+	 * @return a {@link java.lang.String} object.
 	 */
 	public String toString() {
 		StringBuilder dump = new StringBuilder();
@@ -250,7 +258,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Returns the X12 representation of the segment.
-	 * 
+	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
 	 * @return <code>String</code>
@@ -263,7 +271,7 @@ public class Segment implements Iterable<String> {
 	
 	/**
 	 * Returns the XML representation of the segment.
-	 * 
+	 *
 	 * @return <code>String</code> XML representation of the segement.
 	 */
 	public String toXML() {
@@ -290,7 +298,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Returns the XML representation of the segment.
-	 * 
+	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
 	 * @return <code>String</code> XML representation of the segment.

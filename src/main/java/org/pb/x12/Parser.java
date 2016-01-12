@@ -21,8 +21,37 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
+/**
+ * <p>Parser interface.</p>
+ *
+ * @author colwellr
+ * @version $Id: $Id
+ */
 public interface Parser {
+	/**
+	 * <p>parse.</p>
+	 *
+	 * @param source a {@link java.io.File} object.
+	 * @return a {@link org.pb.x12.EDI} object.
+	 * @throws org.pb.x12.FormatException if any.
+	 * @throws java.io.IOException if any.
+	 */
 	EDI parse(File source) throws FormatException, IOException;
+	/**
+	 * <p>parse.</p>
+	 *
+	 * @param source a {@link java.lang.String} object.
+	 * @return a {@link org.pb.x12.EDI} object.
+	 * @throws org.pb.x12.FormatException if any.
+	 */
 	EDI parse(String source) throws FormatException;
+	/**
+	 * <p>parse.</p>
+	 *
+	 * @param source a {@link java.io.InputStream} object.
+	 * @return a {@link org.pb.x12.EDI} object.
+	 * @throws org.pb.x12.FormatException if any.
+	 * @throws java.io.IOException if any.
+	 */
 	EDI parse(InputStream source) throws FormatException, IOException;
 }

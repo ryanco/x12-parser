@@ -29,8 +29,9 @@ import java.util.regex.Pattern;
 /**
  * The class represents methods used to translate a X12 transaction represented
  * as a file or string into an X12 object.
- * 
+ *
  * @author Prasad Balan
+ * @version $Id: $Id
  */
 public class X12SimpleParser implements Parser {
 
@@ -40,15 +41,11 @@ public class X12SimpleParser implements Parser {
 	static final int POS_COMPOSITE_ELEMENT = 104;
 
 	/**
+	 * {@inheritDoc}
+	 *
 	 * The method takes a X12 file and converts it into a X2 object. The X12
 	 * class has methods to convert it into XML format as well as methods to
 	 * modify the contents.
-	 * 
-	 * @param fileName
-	 *            a X12 file
-	 * @return the X12 object
-	 * @throws FormatException
-	 * @throws IOException
 	 */
 	public EDI parse(File fileName) throws FormatException, IOException {
 		final char[] buffer = new char[SIZE];
@@ -82,12 +79,12 @@ public class X12SimpleParser implements Parser {
 	 * The method takes a InputStream and converts it into a X2 object. The X12
 	 * class has methods to convert it into XML format as well as methods to
 	 * modify the contents.
-	 * 
+	 *
 	 * @param source
 	 *            InputStream
 	 * @return the X12 object
-	 * @throws FormatException
-	 * @throws IOException
+	 * @throws org.pb.x12.FormatException if any.
+	 * @throws java.io.IOException if any.
 	 */
 	public EDI parse(InputStream source) throws FormatException, IOException {
 		StringBuilder strBuffer = new StringBuilder();
@@ -109,11 +106,11 @@ public class X12SimpleParser implements Parser {
 	 * The method takes a X12 string and converts it into a X2 object. The X12
 	 * class has methods to convert it into XML format as well as methods to
 	 * modify the contents.
-	 * 
+	 *
 	 * @param source
 	 *            String
 	 * @return the X12 object
-	 * @throws FormatException
+	 * @throws org.pb.x12.FormatException if any.
 	 */
 	public EDI parse(String source) throws FormatException {
 		if (source.length() < SIZE) {

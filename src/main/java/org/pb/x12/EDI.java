@@ -16,6 +16,12 @@
  */
 package org.pb.x12;
 
+/**
+ * <p>EDI interface.</p>
+ *
+ * @author colwellr
+ * @version $Id: $Id
+ */
 public interface EDI {
 	
 }

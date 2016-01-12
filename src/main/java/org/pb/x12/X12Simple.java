@@ -25,18 +25,17 @@ import java.util.List;
  * transaction. The building block of an X12 transaction is an element. Some
  * elements may be made of sub elements. Elements combine to form segments.
  * Segments are grouped as loops. And a set of loops form an X12 transaction.
- * 
+ *
  * @author Prasad Balan
- * 
+ * @version $Id: $Id
  */
-
 public class X12Simple implements EDI, Iterable<Segment> {
 	private Context context;
 	private List<Segment> segments;
 
 	/**
 	 * The constructor takes a context object.
-	 * 
+	 *
 	 * @param c
 	 *            a Context object
 	 */
@@ -49,7 +48,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Creates an empty instance of <code>Segment</code> and adds the segment to
 	 * the end of the X12 transaction. The returned instance can be used to add
 	 * elements to the segment.
-	 * 
+	 *
 	 * @return a new Segment object
 	 */
 	public Segment addSegment() {
@@ -62,7 +61,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Takes a <code>String</code> representation of segment, creates a
 	 * <code>Segment</code> object and adds the segment to the end of the X12
 	 * transaction.
-	 * 
+	 *
 	 * @param segment
 	 *            <code>String</code> representation of the Segment.
 	 * @return a new Segment object
@@ -78,7 +77,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Takes a <code>Segment</code> and adds the segment to the end of the X12
 	 * transaction.
-	 * 
+	 *
 	 * @param segment
 	 *            <code>Segment</code> representation of the Segment.
 	 * @return a new Segment object
@@ -92,7 +91,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Creates an empty instance of <code>Segment</code> and inserts the segment
 	 * at the specified position in the X12 transaction. The returned instance
 	 * can be used to add elements to the segment.
-	 * 
+	 *
 	 * @param index
 	 *            position at which to add the segment.
 	 * @return a new Segment object
@@ -107,10 +106,11 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Takes a <code>String</code> representation of segment, creates a
 	 * <code>Segment</code> object and inserts the segment at the specified
 	 * position
-	 * 
+	 *
 	 * @param segment
 	 *            <code>String</code> representation of the Segment.
 	 * @return a new Segment object
+	 * @param index a int.
 	 */
 	public Segment addSegment(int index, String segment) {
 		Segment s = new Segment(this.context);
@@ -124,10 +124,11 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Takes a <code>String</code> representation of segment, creates a
 	 * <code>Segment</code> object and inserts the segment at the specified
 	 * position
-	 * 
+	 *
 	 * @param segment
 	 *            <code>String</code> representation of the Segment.
-	 * @return a new Segment object            
+	 * @return a new Segment object
+	 * @param index a int.
 	 */
 	public Segment addSegment(int index, Segment segment) {
 		segments.add(index, segment);
@@ -136,7 +137,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 
 	/**
 	 * Get the segments in the X12 transaction.
-	 * 
+	 *
 	 * @param name
 	 *            name of a segment
 	 * @return List<Segment>
@@ -153,7 +154,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	
 	/**
 	 * Returns the context of the X12 transaction.
-	 * 
+	 *
 	 * @return Context object
 	 */
 	public Context getContext() {
@@ -162,7 +163,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 
 	/**
 	 * Returns the <code>Segment<code> at the specified position.
-	 * 
+	 *
 	 * @param index the position of the segment to return.
 	 * @return Segment at the specified index
 	 */
@@ -172,6 +173,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 
 	/**
 	 * Returns the <code>List</code> of <code>Segment</code>.
+	 *
 	 * @return List of segments
 	 */
 	public List<Segment> getSegments() {
@@ -180,7 +182,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	
 	/**
 	 * Returns and <code>Iterator</code> to the elements in the segment.
-	 * 
+	 *
 	 * @return Iterator<String>
 	 */
 	public Iterator<Segment> iterator() {
@@ -189,7 +191,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 
 	/**
 	 * Removes the segment at the specified position in this list.
-	 * 
+	 *
 	 * @param index the position of the segment to remove.
 	 * @return <code>Segment</code>
 	 */
@@ -199,7 +201,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	
 	/**
 	 * Sets the context of the current transaction.
-	 * 
+	 *
 	 * @param context the context to apply to this object.
 	 */
 	public void setContext(Context context) {
@@ -210,7 +212,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Creates an empty instance of <code>Segment</code> and replaces the
 	 * segment at specified position in the X12 transaction. The returned
 	 * instance can be used to add elements to the segment.
-	 * 
+	 *
 	 * @param index
 	 *            position at which to add the segment.
 	 * @return a new Segment object
@@ -225,7 +227,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Takes a <code>String</code> representation of segment, creates a
 	 * <code>Segment</code> object and replaces the segment at the specified
 	 * position in the X12 transaction.
-	 * 
+	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
@@ -243,7 +245,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Replaces
 	 * <code>Segment<code> at the specified position in X12 transaction.
-	 * 
+	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
@@ -257,7 +259,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 
 	/**
 	 * Returns number of segments in the transaction
-	 * 
+	 *
 	 * @return size
 	 */
 	public int size() {
@@ -267,6 +269,8 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Returns the X12 transaction in <code>String</code> format. This method is
 	 * used to convert the X12 object into a X12 transaction.
+	 *
+	 * @return a {@link java.lang.String} object.
 	 */
 	public String toString() {
 		return toString(false);
@@ -274,7 +278,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 
 	/**
 	 * Returns the X12 representation of the segment.
-	 * 
+	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
 	 * @return the segment as an X12 string.
@@ -291,7 +295,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Returns the X12 transaction in XML format. This method translates the X12
 	 * object into XML format.
-	 * 
+	 *
 	 * @return XML string
 	 */
 	public String toXML() {
@@ -301,7 +305,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	/**
 	 * Returns the X12 transaction in XML format. This method translates the X12
 	 * object into XML format.
-	 * 
+	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
 	 * @return the X12 as an XML string.
