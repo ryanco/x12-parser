@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/ryanco/x12-parser.svg?branch=master)](https://travis-ci.org/ryanco/x12-parser)
-[![Documenation Status](http://x12-parser.readthedocs.org/en/latest/?badge=latest)](https://https://readthedocs.org/projects/x12-parser/)
+[![Documentation Status](https://readthedocs.org/projects/x12-parser/badge/?version=latest)](http://x12-parser.readthedocs.org/en/latest/?badge=latest)
 X12 Parser
 ==========
 Current Version: V1.0
