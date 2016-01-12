@@ -17,7 +17,7 @@ API
 -----
 
 .. toctree::
-   :glob:
+   :maxdepth: 3
 
    source/api/packages
 
