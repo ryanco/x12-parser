@@ -45,7 +45,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Creates an empty instance of <code>Segment</code> and adds the segment to
+	 * Creates an empty instance of {@link org.pb.x12.Segment} and adds the segment to
 	 * the end of the X12 transaction. The returned instance can be used to add
 	 * elements to the segment.
 	 *
@@ -58,13 +58,13 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>String</code> representation of segment, creates a
-	 * <code>Segment</code> object and adds the segment to the end of the X12
+	 * Takes a {@link java.lang.String} representation of segment, creates a
+	 * {@link org.pb.x12.Segment} object and adds the segment to the end of the X12
 	 * transaction.
 	 *
 	 * @param segment
-	 *            <code>String</code> representation of the Segment.
-	 * @return a new Segment object
+	 *            {@link java.lang.String} representation of the {@link org.pb.x12.Segment}.
+	 * @return a new {@link org.pb.x12.Segment} object
 	 */
 	public Segment addSegment(String segment) {
 		Segment s = new Segment(this.context);
@@ -75,11 +75,11 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>Segment</code> and adds the segment to the end of the X12
+	 * Takes a {@link org.pb.x12.Segment} and adds the segment to the end of the X12
 	 * transaction.
 	 *
 	 * @param segment
-	 *            <code>Segment</code> representation of the Segment.
+	 *            {@link org.pb.x12.Segment} representation of the Segment.
 	 * @return a new Segment object
 	 */
 	public Segment addSegment(Segment segment) {
@@ -88,7 +88,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Creates an empty instance of <code>Segment</code> and inserts the segment
+	 * Creates an empty instance of {@link org.pb.x12.Segment} and inserts the segment
 	 * at the specified position in the X12 transaction. The returned instance
 	 * can be used to add elements to the segment.
 	 *
@@ -103,13 +103,13 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>String</code> representation of segment, creates a
-	 * <code>Segment</code> object and inserts the segment at the specified
+	 * Takes a {@link java.lang.String} representation of segment, creates a
+	 * {@link org.pb.x12.Segment} object and inserts the segment at the specified
 	 * position
 	 *
 	 * @param segment
-	 *            <code>String</code> representation of the Segment.
-	 * @return a new Segment object
+	 *            {@link java.lang.String} representation of the {@link org.pb.x12.Segment}.
+	 * @return a new {@link org.pb.x12.Segment} object
 	 * @param index a int.
 	 */
 	public Segment addSegment(int index, String segment) {
@@ -121,12 +121,12 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>String</code> representation of segment, creates a
-	 * <code>Segment</code> object and inserts the segment at the specified
+	 * Takes a {@link java.lang.String} representation of segment, creates a
+	 * {@link org.pb.x12.Segment} object and inserts the segment at the specified
 	 * position
 	 *
 	 * @param segment
-	 *            <code>String</code> representation of the Segment.
+	 *            {@link java.lang.String} representation of the Segment.
 	 * @return a new Segment object
 	 * @param index a int.
 	 */
@@ -140,7 +140,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 *
 	 * @param name
 	 *            name of a segment
-	 * @return List<Segment>
+	 * @return {@link java.util.List}&lt;{@link org.pb.x12.Segment}&gt;
 	 */
 	public List<Segment> findSegment(String name) {
 		List<Segment> foundSegments = new ArrayList<Segment>();
@@ -162,7 +162,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the <code>Segment<code> at the specified position.
+	 * Returns the {@link org.pb.x12.Segment} at the specified position.
 	 *
 	 * @param index the position of the segment to return.
 	 * @return Segment at the specified index
@@ -172,7 +172,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the <code>List</code> of <code>Segment</code>.
+	 * Returns the {@link java.util.List}&lt;{@link org.pb.x12.Segment}&gt;.
 	 *
 	 * @return List of segments
 	 */
@@ -181,9 +181,10 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 	
 	/**
-	 * Returns and <code>Iterator</code> to the elements in the segment.
+	 * Returns and {@link java.util.Iterator}&lt;{@link java.lang.String}&gt;
+	 * to the elements in the segment.
 	 *
-	 * @return Iterator<String>
+	 * @return {@link java.util.Iterator}&lt;{@link java.lang.String}&gt;
 	 */
 	public Iterator<Segment> iterator() {
 		return segments.iterator();
@@ -193,7 +194,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	 * Removes the segment at the specified position in this list.
 	 *
 	 * @param index the position of the segment to remove.
-	 * @return <code>Segment</code>
+	 * @return {@link org.pb.x12.Segment}
 	 */
 	public Segment removeSegment(int index) {
 		return segments.remove(index);
@@ -209,7 +210,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Creates an empty instance of <code>Segment</code> and replaces the
+	 * Creates an empty instance of {@link org.pb.x12.Segment} and replaces the
 	 * segment at specified position in the X12 transaction. The returned
 	 * instance can be used to add elements to the segment.
 	 *
@@ -224,14 +225,14 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>String</code> representation of segment, creates a
-	 * <code>Segment</code> object and replaces the segment at the specified
+	 * Takes a {@link java.lang.String} representation of segment, creates a
+	 *{@link org.pb.x12.Segment} object and replaces the segment at the specified
 	 * position in the X12 transaction.
 	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
-	 *            <code>String</code> representation of the Segment.
+	 *            {@link java.lang.String} representation of the Segment.
 	 * @return a new Segment object
 	 */
 	public Segment setSegment(int index, String segment) {
@@ -244,12 +245,12 @@ public class X12Simple implements EDI, Iterable<Segment> {
 
 	/**
 	 * Replaces
-	 * <code>Segment<code> at the specified position in X12 transaction.
+	 * {@link org.pb.x12.Segment} at the specified position in X12 transaction.
 	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
-	 *            <code>Segment</code>
+	 *            {@link org.pb.x12.Segment}
 	 * @return a new Segment object
 	 */
 	public Segment setSegment(int index, Segment segment) {
@@ -267,7 +268,7 @@ public class X12Simple implements EDI, Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the X12 transaction in <code>String</code> format. This method is
+	 * Returns the X12 transaction in {@link java.lang.String} format. This method is
 	 * used to convert the X12 object into a X12 transaction.
 	 *
 	 * @return a {@link java.lang.String} object.
