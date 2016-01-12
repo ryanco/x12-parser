@@ -33,7 +33,7 @@ public class Segment implements Iterable<String> {
 	private List<String> elements = new ArrayList<String>();
 
 	/**
-	 * The constructor takes a <code>Context</code> object as input. The context
+	 * The constructor takes a {@link org.pb.x12.Context} object as input. The context
 	 * object represents the delimiters in a X12 transaction.
 	 *
 	 * @param c
@@ -44,7 +44,7 @@ public class Segment implements Iterable<String> {
 	}
 
 	/**
-	 * Adds <code>String</code> element to the segment. The element is added at
+	 * Adds {@link java.lang.String} element to the segment. The element is added at
 	 * the end of the elements in the current segment.
 	 *
 	 * @param e
@@ -56,9 +56,9 @@ public class Segment implements Iterable<String> {
 	}
 
 	/**
-	 * Adds <code>String</code> with elements to the segment. The elements are
+	 * Adds {@link java.lang.String} with elements to the segment. The elements are
 	 * added at the end of the elements in the current segment. e.g.
-	 * <code>addElements("ISA*ISA01*ISA02");</code>
+	 * {@code addElements("ISA*ISA01*ISA02");}
 	 *
 	 * @param s the element to add.
 	 * @return boolean
@@ -69,9 +69,9 @@ public class Segment implements Iterable<String> {
 	}
 
 	/**
-	 * Adds <code>String</code> elements to the segment. The elements are added
+	 * Adds {@link java.lang.String} elements to the segment. The elements are added
 	 * at the end of the elements in the current segment. e.g.
-	 * <code> addElements("ISA", "ISA01", "ISA02");</code>
+	 * {@code addElements("ISA", "ISA01", "ISA02");}
 	 *
 	 * @param es elements to add.
 	 * @return boolean
@@ -101,7 +101,7 @@ public class Segment implements Iterable<String> {
 	}
 
 	/**
-	 * Inserts <code>String</code> element to the segment at the specified
+	 * Inserts {@link java.lang.String} element to the segment at the specified
 	 * position
 	 *
 	 * @param e
@@ -140,7 +140,7 @@ public class Segment implements Iterable<String> {
 	}
 
 	/**
-	 * Returns the <code>String<code> element at the specified position.
+	 * Returns the {@link java.lang.String} element at the specified position.
 	 *
 	 * @param index
 	 *            position
@@ -151,7 +151,7 @@ public class Segment implements Iterable<String> {
 	}
 
 	/**
-	 * <p>Getter for the field <code>elements</code>.</p>
+	 * Getter for the field {@link java.util.List}&lt;{@link java.lang.String}&gt;
 	 *
 	 * @return List of elements
 	 */
@@ -160,9 +160,10 @@ public class Segment implements Iterable<String> {
 	}
 	
 	/**
-	 * Returns and <code>Iterator</code> to the elements in the segment.
+	 * Returns and {@link java.util.Iterator}&lt;{@link java.lang.String}&gt;
+	 * to the elements in the segment.
 	 *
-	 * @return Iterator<String>
+	 * @return {@link java.util.Iterator}&lt;{@link java.lang.String}&gt;
 	 */
 	public Iterator<String> iterator() {
 		return elements.iterator();
@@ -203,7 +204,7 @@ public class Segment implements Iterable<String> {
 
 	/**
 	 * Replaces element at the specified position with the specified
-	 * <code>String</code>
+	 * {@link java.lang.String}
 	 *
 	 * @param index
 	 *            position of the element to be replaced
@@ -261,7 +262,7 @@ public class Segment implements Iterable<String> {
 	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
-	 * @return <code>String</code>
+	 * @return {@link java.lang.String}
 	 */
 	public String toString(boolean bRemoveTrailingEmptyElements) {
 		if (bRemoveTrailingEmptyElements)
@@ -272,7 +273,7 @@ public class Segment implements Iterable<String> {
 	/**
 	 * Returns the XML representation of the segment.
 	 *
-	 * @return <code>String</code> XML representation of the segement.
+	 * @return {@link java.lang.String} XML representation of the segment.
 	 */
 	public String toXML() {
 		StringBuilder dump = new StringBuilder();
@@ -301,7 +302,7 @@ public class Segment implements Iterable<String> {
 	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
 	 *        trailing elements should be removed.
-	 * @return <code>String</code> XML representation of the segment.
+	 * @return {@link java.lang.String} XML representation of the segment.
 	 */
 	public String toXML(boolean bRemoveTrailingEmptyElements) {
 		if (bRemoveTrailingEmptyElements)
