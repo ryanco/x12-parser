@@ -11,13 +11,15 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   source/developer/overview
+
 API
 -----
 
 .. toctree::
-    :glob:
+   :glob:
 
-    api/packages
+   source/api/packages
 
 
 Indices and tables
