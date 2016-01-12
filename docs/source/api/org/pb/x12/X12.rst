@@ -1,0 +1,24 @@
+X12
+===
+
+.. java:package:: org.pb.x12
+   :noindex:
+
+.. java:type:: public class X12 extends Loop implements EDI
+
+   The X12 class is the object representation of an ANSI X12 transaction. The building block of an X12 transaction is an element. Some elements may be made of sub elements. Elements combine to form segments. Segments are grouped as loops. And a set of loops form an X12 transaction.
+
+   :author: Prasad Balan
+
+Constructors
+------------
+X12
+^^^
+
+.. java:constructor:: public X12(Context c)
+   :outertype: X12
+
+   The constructor takes a context object.
+
+   :param c: a Context object
+
