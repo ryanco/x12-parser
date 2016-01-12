@@ -51,7 +51,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Creates an empty instance of <code>Loop</code> and adds the loop as a
+	 * Creates an empty instance of {@link org.pb.x12.Loop} and adds the loop as a
 	 * child to the current Loop. The returned instance can be used to add
 	 * segments to the child loop.
 	 *
@@ -68,7 +68,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Inserts <code>Loop</code> as a child loop at the specified position.
+	 * Inserts {@link org.pb.x12.Loop} as a child loop at the specified position.
 	 *
 	 * @param index
 	 *            position at which to add the loop.
@@ -81,7 +81,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Creates an empty instance of <code>Segment</code> and adds the segment to
+	 * Creates an empty instance of {@link org.pb.x12.Segment} and adds the segment to
 	 * current Loop. The returned instance can be used to add elements to the
 	 * segment.
 	 *
@@ -94,11 +94,11 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>String</code> representation of segment, creates a
-	 * <code>Segment</code> object and adds the segment to the current Loop.
+	 * Takes a {@link java.lang.String} representation of segment, creates a
+	 * {@link org.pb.x12.Segment} object and adds the segment to the current Loop.
 	 *
 	 * @param segment
-	 *            <code>String</code> representation of the Segment.
+	 *            {@link java.lang.String} representation of the Segment.
 	 * @return a new Segment object
 	 */
 	public Segment addSegment(String segment) {
@@ -110,17 +110,17 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Adds <code>Segment</code> at the end of the current Loop
+	 * Adds {@link org.pb.x12.Segment} at the end of the current Loop
 	 *
 	 * @param segment
-	 *            <code>Segment</code>
+	 *            {@link org.pb.x12.Segment}
 	 */
 	public void addSegment(Segment segment) {
 		segments.add(segment);
 	}
 
 	/**
-	 * Creates an empty instance of <code>Segment</code> and adds the segment at
+	 * Creates an empty instance of {@link org.pb.x12.Segment} and adds the segment at
 	 * the specified position in the current Loop. The returned instance can be
 	 * used to add elements to the segment.
 	 *
@@ -135,14 +135,14 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>String</code> representation of segment, creates a
-	 * <code>Segment</code> object and adds the segment at the specified
+	 * Takes a {@link java.lang.String} representation of segment, creates a
+	 * {@link org.pb.x12.Segment} object and adds the segment at the specified
 	 * position in the current Loop.
 	 *
 	 * @param index
 	 *            position to add the segment.
 	 * @param segment
-	 *            <code>String</code> representation of the segment.
+	 *            {@link java.lang.String} representation of the segment.
 	 * @return a new Segment object
 	 */
 	public Segment addSegment(int index, String segment) {
@@ -154,19 +154,19 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Adds <code>Segment</code> at the specified position in current Loop.
+	 * Adds {@link org.pb.x12.Segment} at the specified position in current Loop.
 	 *
 	 * @param index
 	 *            position to add the segment.
 	 * @param segment
-	 *            <code>String</code> representation of the segment.
+	 *           {@link org.pb.x12.Segment} representation of the segment.
 	 */
 	public void addSegment(int index, Segment segment) {
 		segments.add(index, segment);
 	}
 
 	/**
-	 * Creates an empty instance of <code>Loop</code> and inserts the loop as a
+	 * Creates an empty instance of {@link org.pb.x12.Loop} and inserts the loop as a
 	 * child loop at the specified position. The returned instance can be used
 	 * to add segments to the child loop.
 	 *
@@ -174,7 +174,7 @@ public class Loop implements Iterable<Segment> {
 	 *            position at which to add the loop
 	 * @param name
 	 *            name of the loop
-	 * @return a new child Loop object
+	 * @return a new child {@link org.pb.x12.Loop} object
 	 */
 	public Loop addChild(int index, String name) {
 		Loop l = new Loop(this.context, name);
@@ -210,7 +210,7 @@ public class Loop implements Iterable<Segment> {
 	 *
 	 * @param name
 	 *            name of a loop
-	 * @return List<Loop>
+	 * @return {@link java.util.List}&lt;{@link org.pb.x12.Loop}&gt;
 	 */
 	public List<Loop> findLoop(String name) {
 		List<Loop> foundLoops = new ArrayList<Loop>();
@@ -232,7 +232,7 @@ public class Loop implements Iterable<Segment> {
 	 *
 	 * @param name
 	 *            name of a segment
-	 * @return List<Segment>
+	 * @return {@link java.util.List}&lt;{@link org.pb.x12.Segment}&gt;
 	 */
 	public List<Segment> findSegment(String name) {
 		List<Segment> foundSegments = new ArrayList<Segment>();
@@ -260,7 +260,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the <code>Loop<code> at the specified position.
+	 * Returns the {@link org.pb.x12.Loop} at the specified position.
 	 *
 	 * @param index the index from which to return the loop.
 	 * @return Loop at the specified index
@@ -272,14 +272,14 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the loops
 	 *
-	 * @return List<Loop>
+	 * @return {@link java.util.List}&lt;{@link org.pb.x12.Loop}&lt;
 	 */
 	public List<Loop> getLoops() {
 		return this.loops;
 	}
 
 	/**
-	 * <p>Getter for the field <code>parent</code>.</p>
+	 * Getter for the field {@link org.pb.x12.Loop}.
 	 *
 	 * @return Parent Loop
 	 */
@@ -288,7 +288,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the <code>Segment<code> at the default position.
+	 * Returns the {@link org.pb.x12.Segment} at the default position.
 	 *
 	 * @return Segment at the default index
 	 */
@@ -297,7 +297,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the <code>Segment<code> at the specified position.
+	 * Returns the {@link org.pb.x12.Segment} at the specified position.
 	 *
 	 * @param index the index from which to get the segment.
 	 * @return Segment at the specified index
@@ -309,7 +309,7 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the segments in the current loop.
 	 *
-	 * @return List<Segment>
+	 * @return {@link java.util.List}
 	 */
 	public List<Segment> getSegments() {
 		return this.segments;
@@ -318,16 +318,16 @@ public class Loop implements Iterable<Segment> {
 	/**
 	 * Returns the name of the current Loop.
 	 *
-	 * @return String
+	 * @return {@link java.lang.String}
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Returns and <code>Iterator</code> to the segments in the loop.
+	 * Returns and {@link java.util.Iterator}to the segments in the loop.
 	 *
-	 * @return Iterator<Segment>
+	 * @return {@link java.util.Iterator}&lt;{@link org.pb.x12.Segment}&gt;
 	 */
 	public Iterator<Segment> iterator() {
 		return segments.iterator();
@@ -354,9 +354,9 @@ public class Loop implements Iterable<Segment> {
 	}
 		
 	/**
-	 * Returns <code>List<Loop></code> of child Loops
+	 * Returns {@link java.util.List} of child Loops
 	 *
-	 * @return List<Loop>
+	 * @return {@link java.util.List}&lt;{@link org.pb.x12.Loop}&gt;
 	 */
 	public List<Loop> childList() {
 		return this.loops;
@@ -386,7 +386,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Creates a new <code>Loop</code> and replaces the child loop at the
+	 * Creates a new {@link org.pb.x12.Loop} and replaces the child loop at the
 	 * specified position. The returned instance can be used to add segments to
 	 * the child loop.
 	 *
@@ -405,7 +405,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Replaces child <code>Loop</code> at the specified position.
+	 * Replaces child {@link org.pb.x12.Loop} at the specified position.
 	 *
 	 * @param index
 	 *            position at which to add the loop.
@@ -428,7 +428,7 @@ public class Loop implements Iterable<Segment> {
 	}
 		
 	/**
-	 * Creates an empty instance of <code>Segment</code> and replaces the
+	 * Creates an empty instance of {@link org.pb.x12.Segment} and replaces the
 	 * segment at specified position in the X12 transaction. The returned
 	 * instance can be used to add elements to the segment.
 	 *
@@ -443,14 +443,14 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Takes a <code>String</code> representation of segment, creates a
-	 * <code>Segment</code> object and replaces the segment at the specified
+	 * Takes a {@link java.lang.String} representation of segment, creates a
+	 * {@link java.lang.String} object and replaces the segment at the specified
 	 * position in the X12 transaction.
 	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
-	 *            <code>String</code> representation of the Segment.
+	 *           {@link java.lang.String} representation of the Segment.
 	 * @return a new Segment object
 	 */
 	public Segment setSegment(int index, String segment) {
@@ -463,12 +463,12 @@ public class Loop implements Iterable<Segment> {
 
 	/**
 	 * Replaces
-	 * <code>Segment<code> at the specified position in X12 transaction.
+	 * {@link org.pb.x12.Segment} at the specified position in X12 transaction.
 	 *
 	 * @param index
 	 *            position of the segment to be replaced.
 	 * @param segment
-	 *            <code>Segment</code>
+	 *            {@link org.pb.x12.Segment}
 	 */
 	public void setSegment(int index, Segment segment) {
 		segments.set(index, segment);
@@ -478,14 +478,14 @@ public class Loop implements Iterable<Segment> {
 	 * Sets the name of the current Loop
 	 *
 	 * @param name
-	 *            <code>String</code>
+	 *            {@link java.lang.String}
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * Returns the Loop in X12 <code>String</code> format. This method is used
+	 * Returns the Loop in X12 {@link java.lang.String} format. This method is used
 	 * to convert the X12 object into a X12 transaction.
 	 *
 	 * @return String
@@ -495,7 +495,7 @@ public class Loop implements Iterable<Segment> {
 	}
  
 	/**
-	 * Returns the Loop in X12 <code>String</code> format. This method is used
+	 * Returns the Loop in X12 {@link java.lang.String} format. This method is used
 	 * to convert the X12 object into a X12 transaction.
 	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
@@ -515,7 +515,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the Loop in XML <code>String</code> format. This method is used
+	 * Returns the Loop in XML {@link java.lang.String} format. This method is used
 	 * to convert the X12 object into a XML string.
 	 *
 	 * @return XML String
@@ -525,7 +525,7 @@ public class Loop implements Iterable<Segment> {
 	}
 
 	/**
-	 * Returns the Loop in XML <code>String</code> format. This method is used
+	 * Returns the Loop in XML {@link java.lang.String} format. This method is used
 	 * to convert the X12 object into a XML string.
 	 *
 	 * @param bRemoveTrailingEmptyElements a flag for whether or not empty
