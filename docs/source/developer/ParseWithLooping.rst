@@ -9,14 +9,17 @@ Example of parsing a X12 file.
 Details
 -------
 
-There are two steps
-  1. Load/Create the X12 configuration object (based on the X12 transaction) to be parsed.
-  1. Parse the X12 file.
+There are two steps:
+
+#. Load/Create the X12 configuration object (based on the X12 transaction) to be parsed.
+#. Parse the X12 file.
 
 Load/Create a configuration object
 ----------------------------------
 
 Example of creating an X12 configuration object for a 835 transaction.
+
+.. sourcecode:: java
 
 	private static Cf loadCf() {
 
@@ -46,6 +49,8 @@ For more details on creating configuration object check Creating X12 configurati
 
 Parse the X12 file
 ------------------
+
+.. sourcecode:: java
 
 	// The configuration Cf can be loaded using DI framework.
 	// Check the sample spring application context file provided.
