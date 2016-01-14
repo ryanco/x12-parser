@@ -6,12 +6,16 @@
 Welcome to x12-Parser's documentation!
 ======================================
 
-Contents:
+Developer
+---------
 
 .. toctree::
-   :maxdepth: 2
+   :glob:
 
    source/developer/overview
+   source/developer/LoopParse
+   source/developer/ParseWithLoopDetection
+   source/developer/ParseWithLooping
 
 API
 -----
@@ -26,6 +30,5 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 
