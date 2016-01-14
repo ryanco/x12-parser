@@ -11,11 +11,13 @@ Convert X12 to XML.
 
 For Javadoc see link below External links (see left below). Checkout the javadocs for the examples.
 
-**Limitations**
+Limitations
+~~~~~~~~~~~
 This library cannot validate a X12 transaction.
 When parsing, reads the whole X12 transaction into memory.
 
-**Current Version**
+Current Version
+~~~~~~~~~~~~~~~
   * V1.0 - 21st May 2013
   * V0.9 - 16th Apr 2011
 
