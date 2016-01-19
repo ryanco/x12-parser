@@ -139,7 +139,7 @@ public class X12ParserTest {
 	public void testNoISA() throws IOException, FormatException {
 		Parser parser = new X12Parser(loadCf());
 
-		URL url = this.getClass().getResource("/example835NoIsa.txt");
+		URL url = this.getClass().getResource("/example835NoISA.txt");
 		File f1 = new File(url.getFile());
 
 		parser.parse(f1);
