@@ -1,6 +1,7 @@
 package org.pb.x12;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -132,6 +133,18 @@ public class X12ParserTest {
 		assertEquals(EXPECTED_X12_TOSTRING, x12.toString());
 		assertEquals(EXPECTED_X12_TOXML, x12.toXML());
 		assertEquals(28, x12.size());
+	}
+
+	@Test(expected = FormatException.class)
+	public void testNoISA() throws IOException, FormatException {
+		Parser parser = new X12Parser(loadCf());
+
+		URL url = this.getClass().getResource("/example835NoIsa.txt");
+		File f1 = new File(url.getFile());
+
+		parser.parse(f1);
+
+		fail("FormatException not thrown");
 	}
 
 	@Test

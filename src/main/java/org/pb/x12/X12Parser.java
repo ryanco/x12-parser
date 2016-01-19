@@ -42,6 +42,8 @@ public class X12Parser implements Parser {
 	public static final int POS_ELEMENT = 3;
 	/** Constant <code>POS_COMPOSITE_ELEMENT=104</code> */
 	public static final int POS_COMPOSITE_ELEMENT = 104;
+	/** Constant <code>START_TAG="ISA"</code> */
+	public static final String START_TAG = "ISA";
 
 	private Cf x12Cf;
 	private Cf cfMarker;
@@ -67,10 +69,16 @@ public class X12Parser implements Parser {
 		final char[] buffer = new char[SIZE];
 		FileReader fr = new FileReader(fileName);
 		int count = fr.read(buffer);
+		String start = new String(buffer, 0, 3);
 		fr.close();
 		if (count != SIZE) {
-			throw new FormatException();
+			throw new FormatException("The Interchange Control Header is not " +
+					"the correct size expected: "+SIZE+" found: "+count);
 		}
+		if (!start.startsWith(START_TAG)){
+			throw new FormatException("The Interchange Control Header Segment element: "+START_TAG+" is missing");
+		}
+
 		Context context = new Context();
 		context.setSegmentSeparator(buffer[POS_SEGMENT]);
 		context.setElementSeparator(buffer[POS_ELEMENT]);

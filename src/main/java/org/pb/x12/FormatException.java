@@ -26,4 +26,19 @@ package org.pb.x12;
 public class FormatException extends Exception {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Constructs a default FormatException
+	 */
+	public FormatException(){
+		super();
+	}
+
+	/**
+	 * Constructs a FormatException.
+	 * @param message the message for the exception.
+	 */
+	public FormatException(String message){
+		super(message);
+	}
+
 }
