@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -125,4 +126,51 @@ public class X12SimpleParserSpecialCharsTest {
 		assertEquals(inputString, x12.toString());
 	}
 
+	@Test
+	public void testParseNonAsciiElementSeparator() throws IOException, FormatException {
+		Parser parser = new X12SimpleParser();
+		URL url = this.getClass().getResource(
+				"/example835nonasciielemsep.txt");
+		File f1 = new File(url.getFile());
+
+		X12Simple x12 = (X12Simple) parser.parse(f1);
+		Segment st = x12.getSegment(2);
+		String start_st = st.getElement(0);
+		String type_st = st.getElement(1);
+
+		List<Segment> geSegments = x12.findSegment("GE");
+		Segment ge = geSegments.get(0);
+		String start_gs = ge.getElement(0);
+		String count_gs = ge.getElement(1);
+
+		assertEquals("ST", start_st);
+		assertEquals("835", type_st);
+		assertEquals(1, geSegments.size());
+		assertEquals("GE", start_gs);
+		assertEquals("1", count_gs);
+	}
+
+	@Test
+	public void testParseNonAsciiSegmentSeparator() throws IOException, FormatException {
+		Parser parser = new X12SimpleParser();
+		URL url = this.getClass().getResource(
+				"/example852nonasciisegsep.txt");
+		File f1 = new File(url.getFile());
+
+		X12Simple x12 = (X12Simple) parser.parse(f1);
+		Segment st = x12.getSegment(2);
+		String start_st = st.getElement(0);
+		String type_st = st.getElement(1);
+
+		List<Segment> geSegments = x12.findSegment("GE");
+		Segment ge = geSegments.get(0);
+		String start_gs = ge.getElement(0);
+		String count_gs = ge.getElement(1);
+
+		assertEquals("ST", start_st);
+		assertEquals("852", type_st);
+		assertEquals(1, geSegments.size());
+		assertEquals("GE", start_gs);
+		assertEquals("2", count_gs);
+	}
 }
