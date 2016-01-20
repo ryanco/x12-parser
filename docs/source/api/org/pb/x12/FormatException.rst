@@ -10,3 +10,23 @@ FormatException
 
    :author: Prasad Balan
 
+Constructors
+------------
+FormatException
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public FormatException()
+   :outertype: FormatException
+
+   Constructs a default FormatException
+
+FormatException
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public FormatException(String message)
+   :outertype: FormatException
+
+   Constructs a FormatException.
+
+   :param message: the message for the exception.
+

@@ -2,10 +2,18 @@
 [![Documentation Status](https://readthedocs.org/projects/x12-parser/badge/?version=latest)](http://x12-parser.readthedocs.org/en/latest/?badge=latest)
 X12 Parser
 ==========
-Current Version: V1.0
+Current Version: V1.0.1
 
 CHANGES
 -------
+### V1.0.1
+Forked the code from Google Code to Github.
+Cleaned up code analysis findings from Intellij.
+Fixed javadoc generation warnings.
+Added unit tests for non-happy day cases.
+Added detection for ISA control header from issue #6.
+Added documentation to ReadTheDocs, removed javadoc in repo.
+
 ### V1.0
 Handle special characters that can be used as segment separators.
 Add removeElement(int index) added to Segment class.

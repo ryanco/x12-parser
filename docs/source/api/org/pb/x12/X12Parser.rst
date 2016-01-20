@@ -54,6 +54,14 @@ POS_SEGMENT
 
    Constant \ ``POS_SEGMENT=105``\
 
+START_TAG
+^^^^^^^^^
+
+.. java:field:: public static final String START_TAG
+   :outertype: X12Parser
+
+   Constant \ ``START_TAG="ISA"``\
+
 Constructors
 ------------
 X12Parser

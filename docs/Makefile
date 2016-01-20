@@ -193,4 +193,5 @@ pseudoxml:
 
 javadoc:
 	javasphinx-apidoc -o source/api/ ../src/main/java/ -f
+	javasphinx-apidoc -o source/api/ ../src/examples/ -f
 	@echo "Generated JavaDoc for x12-parser packages"
