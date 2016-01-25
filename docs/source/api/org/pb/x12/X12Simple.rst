@@ -36,7 +36,7 @@ addSegment
 .. java:method:: public Segment addSegment()
    :outertype: X12Simple
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Segment`\  and adds the segment to the end of the X12 transaction. The returned instance can be used to add elements to the segment.
+   Creates an empty instance of \ :java:ref:`Segment`\  and adds the segment to the end of the X12 transaction. The returned instance can be used to add elements to the segment.
 
    :return: a new Segment object
 
@@ -46,10 +46,10 @@ addSegment
 .. java:method:: public Segment addSegment(String segment)
    :outertype: X12Simple
 
-   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`org.pb.x12.Segment`\  object and adds the segment to the end of the X12 transaction.
+   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`Segment`\  object and adds the segment to the end of the X12 transaction.
 
-   :param segment: \ :java:ref:`java.lang.String`\  representation of the \ :java:ref:`org.pb.x12.Segment`\ .
-   :return: a new \ :java:ref:`org.pb.x12.Segment`\  object
+   :param segment: \ :java:ref:`java.lang.String`\  representation of the \ :java:ref:`Segment`\ .
+   :return: a new \ :java:ref:`Segment`\  object
 
 addSegment
 ^^^^^^^^^^
@@ -57,9 +57,9 @@ addSegment
 .. java:method:: public Segment addSegment(Segment segment)
    :outertype: X12Simple
 
-   Takes a \ :java:ref:`org.pb.x12.Segment`\  and adds the segment to the end of the X12 transaction.
+   Takes a \ :java:ref:`Segment`\  and adds the segment to the end of the X12 transaction.
 
-   :param segment: \ :java:ref:`org.pb.x12.Segment`\  representation of the Segment.
+   :param segment: \ :java:ref:`Segment`\  representation of the Segment.
    :return: a new Segment object
 
 addSegment
@@ -68,7 +68,7 @@ addSegment
 .. java:method:: public Segment addSegment(int index)
    :outertype: X12Simple
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Segment`\  and inserts the segment at the specified position in the X12 transaction. The returned instance can be used to add elements to the segment.
+   Creates an empty instance of \ :java:ref:`Segment`\  and inserts the segment at the specified position in the X12 transaction. The returned instance can be used to add elements to the segment.
 
    :param index: position at which to add the segment.
    :return: a new Segment object
@@ -79,11 +79,11 @@ addSegment
 .. java:method:: public Segment addSegment(int index, String segment)
    :outertype: X12Simple
 
-   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`org.pb.x12.Segment`\  object and inserts the segment at the specified position
+   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`Segment`\  object and inserts the segment at the specified position
 
-   :param segment: \ :java:ref:`java.lang.String`\  representation of the \ :java:ref:`org.pb.x12.Segment`\ .
+   :param segment: \ :java:ref:`java.lang.String`\  representation of the \ :java:ref:`Segment`\ .
    :param index: a int.
-   :return: a new \ :java:ref:`org.pb.x12.Segment`\  object
+   :return: a new \ :java:ref:`Segment`\  object
 
 addSegment
 ^^^^^^^^^^
@@ -91,7 +91,7 @@ addSegment
 .. java:method:: public Segment addSegment(int index, Segment segment)
    :outertype: X12Simple
 
-   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`org.pb.x12.Segment`\  object and inserts the segment at the specified position
+   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`Segment`\  object and inserts the segment at the specified position
 
    :param segment: \ :java:ref:`java.lang.String`\  representation of the Segment.
    :param index: a int.
@@ -106,7 +106,7 @@ findSegment
    Get the segments in the X12 transaction.
 
    :param name: name of a segment
-   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`org.pb.x12.Segment`\ >
+   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`Segment`\ >
 
 getContext
 ^^^^^^^^^^
@@ -124,7 +124,7 @@ getSegment
 .. java:method:: public Segment getSegment(int index)
    :outertype: X12Simple
 
-   Returns the \ :java:ref:`org.pb.x12.Segment`\  at the specified position.
+   Returns the \ :java:ref:`Segment`\  at the specified position.
 
    :param index: the position of the segment to return.
    :return: Segment at the specified index
@@ -135,7 +135,7 @@ getSegments
 .. java:method:: public List<Segment> getSegments()
    :outertype: X12Simple
 
-   Returns the \ :java:ref:`java.util.List`\ <\ :java:ref:`org.pb.x12.Segment`\ >.
+   Returns the \ :java:ref:`java.util.List`\ <\ :java:ref:`Segment`\ >.
 
    :return: List of segments
 
@@ -158,7 +158,7 @@ removeSegment
    Removes the segment at the specified position in this list.
 
    :param index: the position of the segment to remove.
-   :return: \ :java:ref:`org.pb.x12.Segment`\
+   :return: \ :java:ref:`Segment`\
 
 setContext
 ^^^^^^^^^^
@@ -176,7 +176,7 @@ setSegment
 .. java:method:: public Segment setSegment(int index)
    :outertype: X12Simple
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Segment`\  and replaces the segment at specified position in the X12 transaction. The returned instance can be used to add elements to the segment.
+   Creates an empty instance of \ :java:ref:`Segment`\  and replaces the segment at specified position in the X12 transaction. The returned instance can be used to add elements to the segment.
 
    :param index: position at which to add the segment.
    :return: a new Segment object
@@ -187,7 +187,7 @@ setSegment
 .. java:method:: public Segment setSegment(int index, String segment)
    :outertype: X12Simple
 
-   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`org.pb.x12.Segment`\  object and replaces the segment at the specified position in the X12 transaction.
+   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`Segment`\  object and replaces the segment at the specified position in the X12 transaction.
 
    :param index: position of the segment to be replaced.
    :param segment: \ :java:ref:`java.lang.String`\  representation of the Segment.
@@ -199,10 +199,10 @@ setSegment
 .. java:method:: public Segment setSegment(int index, Segment segment)
    :outertype: X12Simple
 
-   Replaces \ :java:ref:`org.pb.x12.Segment`\  at the specified position in X12 transaction.
+   Replaces \ :java:ref:`Segment`\  at the specified position in X12 transaction.
 
    :param index: position of the segment to be replaced.
-   :param segment: \ :java:ref:`org.pb.x12.Segment`\
+   :param segment: \ :java:ref:`Segment`\
    :return: a new Segment object
 
 size

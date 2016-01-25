@@ -54,8 +54,8 @@
 	<target name="test" depends="compile-test">
 		<mkdir dir="${report.dir}" />
 		<copy todir="${build.dir}">
-			<fileset file="src\examples\java\org\pb\x12\example\example835One.txt"/>
-			<fileset file="src\examples\java\org\pb\x12\example\example835SpecialCharsOne.txt"/>			
+			<fileset file="src/examples/java/org/yarsquidy/x12/example/example835One.txt"/>
+			<fileset file="src/examples/java/org/yarsquidy/x12/example/example835SpecialCharsOne.txt"/>
 		</copy>				
 		<junit printsummary="on" fork="true" haltonfailure="yes">
 			<classpath refid="junit.class.path" />

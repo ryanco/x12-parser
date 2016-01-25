@@ -93,7 +93,7 @@ org.pb.x12</FONT>
 Class Loop</H2>
 <PRE>
 java.lang.Object
-  <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>org.pb.x12.Loop</B>
+  <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>com.yarsquidy.x12.Loop</B>
 </PRE>
 <DL>
 <DT><B>All Implemented Interfaces:</B> <DD>java.lang.Iterable&lt;<A HREF="../../../org/pb/x12/Segment.html" title="class in org.pb.x12">Segment</A>&gt;</DD>
@@ -131,7 +131,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <B>Constructor Summary</B></FONT></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#Loop(org.pb.x12.Context, java.lang.String)">Loop</A></B>(<A HREF="../../../org/pb/x12/Context.html" title="class in org.pb.x12">Context</A>&nbsp;c,
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#Loop(Context, java.lang.String)">Loop</A></B>(<A HREF="../../../org/pb/x12/Context.html" title="class in org.pb.x12">Context</A>&nbsp;c,
      java.lang.String&nbsp;name)</CODE>
 
 <BR>
@@ -150,7 +150,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#addChild(int, org.pb.x12.Loop)">addChild</A></B>(int&nbsp;index,
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#addChild(int, Loop)">addChild</A></B>(int&nbsp;index,
          <A HREF="../../../org/pb/x12/Loop.html" title="class in org.pb.x12">Loop</A>&nbsp;loop)</CODE>
 
 <BR>
@@ -196,7 +196,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#addSegment(int, org.pb.x12.Segment)">addSegment</A></B>(int&nbsp;index,
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#addSegment(int, Segment)">addSegment</A></B>(int&nbsp;index,
            <A HREF="../../../org/pb/x12/Segment.html" title="class in org.pb.x12">Segment</A>&nbsp;segment)</CODE>
 
 <BR>
@@ -216,7 +216,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#addSegment(org.pb.x12.Segment)">addSegment</A></B>(<A HREF="../../../org/pb/x12/Segment.html" title="class in org.pb.x12">Segment</A>&nbsp;segment)</CODE>
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#addSegment(Segment)">addSegment</A></B>(<A HREF="../../../org/pb/x12/Segment.html" title="class in org.pb.x12">Segment</A>&nbsp;segment)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds <code>Segment</code> at the end of the current Loop</TD>
@@ -339,7 +339,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setChild(int, org.pb.x12.Loop)">setChild</A></B>(int&nbsp;index,
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setChild(int, Loop)">setChild</A></B>(int&nbsp;index,
          <A HREF="../../../org/pb/x12/Loop.html" title="class in org.pb.x12">Loop</A>&nbsp;loop)</CODE>
 
 <BR>
@@ -358,7 +358,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setContext(org.pb.x12.Context)">setContext</A></B>(<A HREF="../../../org/pb/x12/Context.html" title="class in org.pb.x12">Context</A>&nbsp;context)</CODE>
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setContext(Context)">setContext</A></B>(<A HREF="../../../org/pb/x12/Context.html" title="class in org.pb.x12">Context</A>&nbsp;context)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the context of the current transaction.</TD>
@@ -374,7 +374,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setParent(org.pb.x12.Loop)">setParent</A></B>(<A HREF="../../../org/pb/x12/Loop.html" title="class in org.pb.x12">Loop</A>&nbsp;parent)</CODE>
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setParent(Loop)">setParent</A></B>(<A HREF="../../../org/pb/x12/Loop.html" title="class in org.pb.x12">Loop</A>&nbsp;parent)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
@@ -391,7 +391,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setSegment(int, org.pb.x12.Segment)">setSegment</A></B>(int&nbsp;index,
+<TD><CODE><B><A HREF="../../../org/pb/x12/Loop.html#setSegment(int, Segment)">setSegment</A></B>(int&nbsp;index,
            <A HREF="../../../org/pb/x12/Segment.html" title="class in org.pb.x12">Segment</A>&nbsp;segment)</CODE>
 
 <BR>
@@ -456,7 +456,7 @@ The Loop class is the representation of an Loop in a ANSI X12
 </TR>
 </TABLE>
 
-<A NAME="Loop(org.pb.x12.Context, java.lang.String)"><!-- --></A><H3>
+<A NAME="Loop(com.yarsquidy.x12.Context, java.lang.String)"><!-- --></A><H3>
 Loop</H3>
 <PRE>
 public <B>Loop</B>(<A HREF="../../../org/pb/x12/Context.html" title="class in org.pb.x12">Context</A>&nbsp;c,

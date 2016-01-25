@@ -1,26 +1,59 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.pb</groupId>
+	<groupId>com.yarsquidy</groupId>
 	<artifactId>x12</artifactId>
 	<version>1.1-SNAPSHOT</version>
 	<scm>
-		<connection>scm:svn:https://x12-parser.googlecode.com/svn/trunk</connection>
-		<developerConnection>scm:svn:https://x12-parser.googlecode.com/svn/trunk</developerConnection>
-		<url>http://code.google.com/p/x12-parser/</url>
+		<connection>scm:git:git@github.com:ryanco/x12-parser.git</connection>
+		<developerConnection>scm:git:git@github.com:ryanco/x12-parser.git</developerConnection>
+		<url>git@github.com:ryanco/x12-parser.git</url>
 	</scm>
-	<distributionManagement>
-		<repository>
-			<id>localrepo</id>
-			<name>build server repository</name>
-			<url>file://C:\localrepo</url>
-		</repository>
-	</distributionManagement>	
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		<resources>

@@ -37,7 +37,7 @@ addChild
 .. java:method:: public Loop addChild(String name)
    :outertype: Loop
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Loop`\  and adds the loop as a child to the current Loop. The returned instance can be used to add segments to the child loop.
+   Creates an empty instance of \ :java:ref:`Loop`\  and adds the loop as a child to the current Loop. The returned instance can be used to add segments to the child loop.
 
    :param name: name of the loop
    :return: a new child Loop object
@@ -48,10 +48,10 @@ addChild
 .. java:method:: public void addChild(int index, Loop loop)
    :outertype: Loop
 
-   Inserts \ :java:ref:`org.pb.x12.Loop`\  as a child loop at the specified position.
+   Inserts \ :java:ref:`Loop`\  as a child loop at the specified position.
 
    :param index: position at which to add the loop.
-   :param loop: a \ :java:ref:`org.pb.x12.Loop`\  object.
+   :param loop: a \ :java:ref:`Loop`\  object.
 
 addChild
 ^^^^^^^^
@@ -59,11 +59,11 @@ addChild
 .. java:method:: public Loop addChild(int index, String name)
    :outertype: Loop
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Loop`\  and inserts the loop as a child loop at the specified position. The returned instance can be used to add segments to the child loop.
+   Creates an empty instance of \ :java:ref:`Loop`\  and inserts the loop as a child loop at the specified position. The returned instance can be used to add segments to the child loop.
 
    :param index: position at which to add the loop
    :param name: name of the loop
-   :return: a new child \ :java:ref:`org.pb.x12.Loop`\  object
+   :return: a new child \ :java:ref:`Loop`\  object
 
 addSegment
 ^^^^^^^^^^
@@ -71,7 +71,7 @@ addSegment
 .. java:method:: public Segment addSegment()
    :outertype: Loop
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Segment`\  and adds the segment to current Loop. The returned instance can be used to add elements to the segment.
+   Creates an empty instance of \ :java:ref:`Segment`\  and adds the segment to current Loop. The returned instance can be used to add elements to the segment.
 
    :return: a new Segment object
 
@@ -81,7 +81,7 @@ addSegment
 .. java:method:: public Segment addSegment(String segment)
    :outertype: Loop
 
-   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`org.pb.x12.Segment`\  object and adds the segment to the current Loop.
+   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`Segment`\  object and adds the segment to the current Loop.
 
    :param segment: \ :java:ref:`java.lang.String`\  representation of the Segment.
    :return: a new Segment object
@@ -92,9 +92,9 @@ addSegment
 .. java:method:: public void addSegment(Segment segment)
    :outertype: Loop
 
-   Adds \ :java:ref:`org.pb.x12.Segment`\  at the end of the current Loop
+   Adds \ :java:ref:`Segment`\  at the end of the current Loop
 
-   :param segment: \ :java:ref:`org.pb.x12.Segment`\
+   :param segment: \ :java:ref:`Segment`\
 
 addSegment
 ^^^^^^^^^^
@@ -102,7 +102,7 @@ addSegment
 .. java:method:: public Segment addSegment(int index)
    :outertype: Loop
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Segment`\  and adds the segment at the specified position in the current Loop. The returned instance can be used to add elements to the segment.
+   Creates an empty instance of \ :java:ref:`Segment`\  and adds the segment at the specified position in the current Loop. The returned instance can be used to add elements to the segment.
 
    :param index: position at which to add the segment.
    :return: a new Segment object
@@ -113,7 +113,7 @@ addSegment
 .. java:method:: public Segment addSegment(int index, String segment)
    :outertype: Loop
 
-   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`org.pb.x12.Segment`\  object and adds the segment at the specified position in the current Loop.
+   Takes a \ :java:ref:`java.lang.String`\  representation of segment, creates a \ :java:ref:`Segment`\  object and adds the segment at the specified position in the current Loop.
 
    :param index: position to add the segment.
    :param segment: \ :java:ref:`java.lang.String`\  representation of the segment.
@@ -125,10 +125,10 @@ addSegment
 .. java:method:: public void addSegment(int index, Segment segment)
    :outertype: Loop
 
-   Adds \ :java:ref:`org.pb.x12.Segment`\  at the specified position in current Loop.
+   Adds \ :java:ref:`Segment`\  at the specified position in current Loop.
 
    :param index: position to add the segment.
-   :param segment: \ :java:ref:`org.pb.x12.Segment`\  representation of the segment.
+   :param segment: \ :java:ref:`Segment`\  representation of the segment.
 
 childList
 ^^^^^^^^^
@@ -138,7 +138,7 @@ childList
 
    Returns \ :java:ref:`java.util.List`\  of child Loops
 
-   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`org.pb.x12.Loop`\ >
+   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`Loop`\ >
 
 findLoop
 ^^^^^^^^
@@ -149,7 +149,7 @@ findLoop
    Get the loop in the X12 transaction It will check the complete child hierarchy.
 
    :param name: name of a loop
-   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`org.pb.x12.Loop`\ >
+   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`Loop`\ >
 
 findSegment
 ^^^^^^^^^^^
@@ -160,7 +160,7 @@ findSegment
    Get the segment in the X12 transaction It will check the current loop and the complete child hierarchy.
 
    :param name: name of a segment
-   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`org.pb.x12.Segment`\ >
+   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`Segment`\ >
 
 getContext
 ^^^^^^^^^^
@@ -188,7 +188,7 @@ getLoop
 .. java:method:: public Loop getLoop(int index)
    :outertype: Loop
 
-   Returns the \ :java:ref:`org.pb.x12.Loop`\  at the specified position.
+   Returns the \ :java:ref:`Loop`\  at the specified position.
 
    :param index: the index from which to return the loop.
    :return: Loop at the specified index
@@ -201,7 +201,7 @@ getLoops
 
    Returns the loops
 
-   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`org.pb.x12.Loop`\ <
+   :return: \ :java:ref:`java.util.List`\ <\ :java:ref:`Loop`\ <
 
 getName
 ^^^^^^^
@@ -219,7 +219,7 @@ getParent
 .. java:method:: public Loop getParent()
    :outertype: Loop
 
-   Getter for the field \ :java:ref:`org.pb.x12.Loop`\ .
+   Getter for the field \ :java:ref:`Loop`\ .
 
    :return: Parent Loop
 
@@ -229,7 +229,7 @@ getSegment
 .. java:method:: public Segment getSegment()
    :outertype: Loop
 
-   Returns the \ :java:ref:`org.pb.x12.Segment`\  at the default position.
+   Returns the \ :java:ref:`Segment`\  at the default position.
 
    :return: Segment at the default index
 
@@ -239,7 +239,7 @@ getSegment
 .. java:method:: public Segment getSegment(int index)
    :outertype: Loop
 
-   Returns the \ :java:ref:`org.pb.x12.Segment`\  at the specified position.
+   Returns the \ :java:ref:`Segment`\  at the specified position.
 
    :param index: the index from which to get the segment.
    :return: Segment at the specified index
@@ -273,7 +273,7 @@ iterator
 
    Returns and \ :java:ref:`java.util.Iterator`\ to the segments in the loop.
 
-   :return: \ :java:ref:`java.util.Iterator`\ <\ :java:ref:`org.pb.x12.Segment`\ >
+   :return: \ :java:ref:`java.util.Iterator`\ <\ :java:ref:`Segment`\ >
 
 removeLoop
 ^^^^^^^^^^
@@ -303,7 +303,7 @@ setChild
 .. java:method:: public Loop setChild(int index, String name)
    :outertype: Loop
 
-   Creates a new \ :java:ref:`org.pb.x12.Loop`\  and replaces the child loop at the specified position. The returned instance can be used to add segments to the child loop.
+   Creates a new \ :java:ref:`Loop`\  and replaces the child loop at the specified position. The returned instance can be used to add segments to the child loop.
 
    :param name: name of the loop
    :param index: position at which to add the loop.
@@ -315,7 +315,7 @@ setChild
 .. java:method:: public void setChild(int index, Loop loop)
    :outertype: Loop
 
-   Replaces child \ :java:ref:`org.pb.x12.Loop`\  at the specified position.
+   Replaces child \ :java:ref:`Loop`\  at the specified position.
 
    :param index: position at which to add the loop.
    :param loop: Loop to add
@@ -356,7 +356,7 @@ setSegment
 .. java:method:: public Segment setSegment(int index)
    :outertype: Loop
 
-   Creates an empty instance of \ :java:ref:`org.pb.x12.Segment`\  and replaces the segment at specified position in the X12 transaction. The returned instance can be used to add elements to the segment.
+   Creates an empty instance of \ :java:ref:`Segment`\  and replaces the segment at specified position in the X12 transaction. The returned instance can be used to add elements to the segment.
 
    :param index: position at which to add the segment.
    :return: a new Segment object
@@ -379,10 +379,10 @@ setSegment
 .. java:method:: public void setSegment(int index, Segment segment)
    :outertype: Loop
 
-   Replaces \ :java:ref:`org.pb.x12.Segment`\  at the specified position in X12 transaction.
+   Replaces \ :java:ref:`Segment`\  at the specified position in X12 transaction.
 
    :param index: position of the segment to be replaced.
-   :param segment: \ :java:ref:`org.pb.x12.Segment`\
+   :param segment: \ :java:ref:`Segment`\
 
 size
 ^^^^

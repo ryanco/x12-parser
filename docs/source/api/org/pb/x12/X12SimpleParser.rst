@@ -74,7 +74,7 @@ parse
 
    :param source: InputStream
    :throws java.io.IOException: if any.
-   :throws org.pb.x12.FormatException: if any.
+   :throws FormatException: if any.
    :return: the X12 object
 
 parse
@@ -86,6 +86,6 @@ parse
    The method takes a X12 string and converts it into a X2 object. The X12 class has methods to convert it into XML format as well as methods to modify the contents.
 
    :param source: String
-   :throws org.pb.x12.FormatException: if any.
+   :throws FormatException: if any.
    :return: the X12 object
 
