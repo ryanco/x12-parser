@@ -28,8 +28,8 @@ parse
 
    :param source: a \ :java:ref:`java.io.File`\  object.
    :throws java.io.IOException: if any.
-   :throws org.pb.x12.FormatException: if any.
-   :return: a \ :java:ref:`org.pb.x12.EDI`\  object.
+   :throws FormatException: if any.
+   :return: a \ :java:ref:`EDI`\  object.
 
 parse
 ^^^^^
@@ -40,8 +40,8 @@ parse
    parse.
 
    :param source: a \ :java:ref:`java.lang.String`\  object.
-   :throws org.pb.x12.FormatException: if any.
-   :return: a \ :java:ref:`org.pb.x12.EDI`\  object.
+   :throws FormatException: if any.
+   :return: a \ :java:ref:`EDI`\  object.
 
 parse
 ^^^^^
@@ -53,6 +53,6 @@ parse
 
    :param source: a \ :java:ref:`java.io.InputStream`\  object.
    :throws java.io.IOException: if any.
-   :throws org.pb.x12.FormatException: if any.
-   :return: a \ :java:ref:`org.pb.x12.EDI`\  object.
+   :throws FormatException: if any.
+   :return: a \ :java:ref:`EDI`\  object.
 

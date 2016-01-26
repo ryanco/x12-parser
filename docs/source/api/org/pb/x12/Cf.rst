@@ -119,7 +119,7 @@ addChild
 
    addChild.
 
-   :param cf: a \ :java:ref:`org.pb.x12.Cf`\  object.
+   :param cf: a \ :java:ref:`Cf`\  object.
 
 addChild
 ^^^^^^^^
@@ -131,7 +131,7 @@ addChild
 
    :param name: a \ :java:ref:`java.lang.String`\  object.
    :param segment: a \ :java:ref:`java.lang.String`\  object.
-   :return: a \ :java:ref:`org.pb.x12.Cf`\  object.
+   :return: a \ :java:ref:`Cf`\  object.
 
 addChild
 ^^^^^^^^
@@ -145,7 +145,7 @@ addChild
    :param segment: a \ :java:ref:`java.lang.String`\  object.
    :param segmentQual: a \ :java:ref:`java.lang.String`\  object.
    :param segmentQualPos: a \ :java:ref:`java.lang.Integer`\  object.
-   :return: a \ :java:ref:`org.pb.x12.Cf`\  object.
+   :return: a \ :java:ref:`Cf`\  object.
 
 childList
 ^^^^^^^^^
@@ -175,7 +175,7 @@ getParent
 
    Getter for the field \ ``parent``\ .
 
-   :return: a \ :java:ref:`org.pb.x12.Cf`\  object.
+   :return: a \ :java:ref:`Cf`\  object.
 
 getSegment
 ^^^^^^^^^^
@@ -255,7 +255,7 @@ setParent
 
    Setter for the field \ ``parent``\ .
 
-   :param cf: a \ :java:ref:`org.pb.x12.Cf`\  object.
+   :param cf: a \ :java:ref:`Cf`\  object.
 
 setSegment
 ^^^^^^^^^^

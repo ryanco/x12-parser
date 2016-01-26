@@ -24,7 +24,7 @@ Segment
 .. java:constructor:: public Segment(Context c)
    :outertype: Segment
 
-   The constructor takes a \ :java:ref:`org.pb.x12.Context`\  object as input. The context object represents the delimiters in a X12 transaction.
+   The constructor takes a \ :java:ref:`Context`\  object as input. The context object represents the delimiters in a X12 transaction.
 
    :param c: the context object
 
