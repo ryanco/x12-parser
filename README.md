@@ -1,13 +1,16 @@
 [![Build Status](https://travis-ci.org/ryanco/x12-parser.svg?branch=master)](https://travis-ci.org/ryanco/x12-parser)
 [![Documentation Status](https://readthedocs.org/projects/x12-parser/badge/?version=latest)](http://x12-parser.readthedocs.org/en/latest/?badge=latest)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.yarsquidy/x12-parser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.yarsquidy/x12-parser)
 X12 Parser
 ==========
-Current Version: V1.0.1
+Current Version: V2.0.0
 
 CHANGES
 -------
-### V1.0.1
+### V2.0.0
 * Forked the code from Google Code to Github.
+* Changed the namespace to support releasing to Maven Central.
+* Added Sphinx to manage docs and support ReadTheDocs.
 * Cleaned up code analysis findings from Intellij.
 * Fixed javadoc generation warnings.
 * Added unit tests for non-happy day cases.
