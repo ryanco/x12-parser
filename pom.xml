@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.yarsquidy</groupId>
 	<artifactId>x12-parser</artifactId>
-	<version>2.0.0</version>
+	<version>2.0.1-SNAPSHOT</version>
 	<name>x12-parser</name>
 	<description>A library for parsing ASC x12 documents.</description>
 	<url>http://x12-parser.readthedocs.org/en/latest/</url>
