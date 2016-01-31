@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/ryanco/x12-parser.svg?branch=master)](https://travis-ci.org/ryanco/x12-parser)
 [![Documentation Status](https://readthedocs.org/projects/x12-parser/badge/?version=latest)](http://x12-parser.readthedocs.org/en/latest/?badge=latest)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.yarsquidy/x12-parser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.yarsquidy/x12-parser)
 X12 Parser
 ==========
 Current Version: V2.0.0
